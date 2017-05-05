@@ -5,12 +5,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Craftsman.Core.AppSetting
+namespace Craftsman.Core
 {
     /// <summary>
     /// Management test setting.
     /// </summary>
-    public class TestSettingManager
+    public class SettingManager
     {
         public static string GetAppSetting(string settingName)
         {

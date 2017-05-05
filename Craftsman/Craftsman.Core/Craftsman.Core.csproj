@@ -43,16 +43,14 @@
     <Reference Include="System.Xml" />
     <Reference Include="WebDriver, Version=3.4.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Selenium.WebDriver.3.4.0\lib\net40\WebDriver.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="WebDriver.Support, Version=3.4.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Selenium.Support.3.4.0\lib\net40\WebDriver.Support.dll</HintPath>
-      <Private>True</Private>
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AppSetting\TestSettingManager.cs" />
-    <Compile Include="AppSetting\TestSettingName.cs" />
+    <Compile Include="AppSetting\SettingManager.cs" />
+    <Compile Include="AppSetting\SettingName.cs" />
     <Compile Include="Factory\CraftsmanFactory.cs" />
     <Compile Include="Factory\PageComponentBase.cs" />
     <Compile Include="Factory\PageObjectBase.cs" />

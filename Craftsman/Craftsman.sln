@@ -1,15 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26403.7
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "00.Framework", "00.Framework", "{33F29275-A5B7-454F-B3DC-963D346A4067}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02.JumpForward", "02.JumpForward", "{6C63EF60-3F52-4CB3-9DEE-BA03CF9A1790}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Craftsman.Core", "Craftsman.Core\Craftsman.Core.csproj", "{0D5F1B62-B6CF-409A-976C-C6B0FF05ED21}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01.Tools", "01.Tools", "{FFD88A65-1DFC-4E88-8F67-02B78F68C7A7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Craftsman.DataAccess", "Craftsman.DataAccess\Craftsman.DataAccess.csproj", "{8AC3C3CD-C33E-4D72-A96D-3B016B564059}"
 EndProject
@@ -21,9 +19,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JumpForward.PageObject", "J
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JumpForward.Common", "JumpForward.Common\JumpForward.Common.csproj", "{EFC5C127-1973-415A-8644-12E794C6B4E5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JumpForward.TestCase", "JumpForward.TestCase\JumpForward.TestCase.csproj", "{D39510D2-4D82-4A29-AA8B-7F3C66D6D1A3}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GitHub.TestCase", "GitHub.TestCase\GitHub.TestCase.csproj", "{584ACEEC-F56F-49E7-8510-BD572085D307}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JumpForward.TestCase", "JumpForward.TestCase\JumpForward.TestCase.csproj", "{2E3DF5C2-8A38-4A03-86D7-8D463C917E47}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,14 +47,10 @@ Global
 		{EFC5C127-1973-415A-8644-12E794C6B4E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EFC5C127-1973-415A-8644-12E794C6B4E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EFC5C127-1973-415A-8644-12E794C6B4E5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D39510D2-4D82-4A29-AA8B-7F3C66D6D1A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D39510D2-4D82-4A29-AA8B-7F3C66D6D1A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D39510D2-4D82-4A29-AA8B-7F3C66D6D1A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D39510D2-4D82-4A29-AA8B-7F3C66D6D1A3}.Release|Any CPU.Build.0 = Release|Any CPU
-		{584ACEEC-F56F-49E7-8510-BD572085D307}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{584ACEEC-F56F-49E7-8510-BD572085D307}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{584ACEEC-F56F-49E7-8510-BD572085D307}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{584ACEEC-F56F-49E7-8510-BD572085D307}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E3DF5C2-8A38-4A03-86D7-8D463C917E47}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E3DF5C2-8A38-4A03-86D7-8D463C917E47}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E3DF5C2-8A38-4A03-86D7-8D463C917E47}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E3DF5C2-8A38-4A03-86D7-8D463C917E47}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -69,7 +61,6 @@ Global
 		{6C4F4454-44FA-47F3-BD17-9EFBAFC897A1} = {33F29275-A5B7-454F-B3DC-963D346A4067}
 		{2F6BB2A7-61E3-4881-9735-83F225841A22} = {6C63EF60-3F52-4CB3-9DEE-BA03CF9A1790}
 		{EFC5C127-1973-415A-8644-12E794C6B4E5} = {6C63EF60-3F52-4CB3-9DEE-BA03CF9A1790}
-		{D39510D2-4D82-4A29-AA8B-7F3C66D6D1A3} = {6C63EF60-3F52-4CB3-9DEE-BA03CF9A1790}
-		{584ACEEC-F56F-49E7-8510-BD572085D307} = {4F349A1F-C621-494C-A131-B31AFA7B77D7}
+		{2E3DF5C2-8A38-4A03-86D7-8D463C917E47} = {6C63EF60-3F52-4CB3-9DEE-BA03CF9A1790}
 	EndGlobalSection
 EndGlobal

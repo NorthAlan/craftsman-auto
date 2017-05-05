@@ -1,4 +1,4 @@
-﻿using Craftsman.Core.AppSetting;
+﻿using Craftsman.Core;
 using Craftsman.Core.Manager;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
@@ -16,8 +16,8 @@ namespace Craftsman.Core.Factory
     {
         public static IDriverManager CreateDriverManager()
         {
-            var browser = TestSettingManager.GetAppSetting(SettingName.BROWSER);
-            var driverPath = TestSettingManager.GetAppSetting(SettingName.DRIVERPATH);
+            var browser = SettingManager.GetAppSetting(SettingName.BROWSER);
+            var driverPath = SettingManager.GetAppSetting(SettingName.DRIVERPATH);
             if (string.IsNullOrEmpty(browser))
             {
                 throw new Exception(string.Format("Can not get config '{0}'", SettingName.BROWSER));

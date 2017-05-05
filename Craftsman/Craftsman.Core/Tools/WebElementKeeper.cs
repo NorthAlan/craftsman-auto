@@ -1,4 +1,4 @@
-﻿using Craftsman.Core.AppSetting;
+﻿using Craftsman.Core;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using System;
@@ -17,7 +17,7 @@ namespace Craftsman.Core.Tools
         {
             _timeoutInterval = TimeSpan.FromSeconds(30);
             int conifgInterval;
-            if (int.TryParse(TestSettingManager.GetAppSetting(SettingName.WAITTIMEOUTINTERVAL), out conifgInterval))
+            if (int.TryParse(SettingManager.GetAppSetting(SettingName.WAITTIMEOUTINTERVAL), out conifgInterval))
             {
                 _timeoutInterval = TimeSpan.FromSeconds(conifgInterval);
             }

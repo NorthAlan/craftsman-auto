@@ -24,7 +24,7 @@ namespace JumpForward.PageObject
         [FindsBy(How = How.Id, Using = "ContentPlaceHolder1_txtPassword")]
         protected IWebElement txtPassword;
 
-        [FindsBy(How = How.XPath, Using = ".//button[text()='Sign in']")]
+        [FindsBy(How = How.XPath, Using = ".//input[@value='Sign In']")]
         protected IWebElement btnSignIn;
 
         #endregion Page elements
@@ -35,7 +35,7 @@ namespace JumpForward.PageObject
         /// </summary>
         /// <param name="userName">User name</param>
         /// <param name="password">Password</param>
-        public void SignIn(string userName, string password)
+        public DatabaseProspectsPage SignIn(string userName, string password)
         {
             this.txtUserName.Clear();
             this.txtPassword.Clear();
@@ -44,6 +44,7 @@ namespace JumpForward.PageObject
             this.txtPassword.SendKeys(password);
 
             this.btnSignIn.Click();
+            return new DatabaseProspectsPage(this.Driver);
         }
         #endregion
     }

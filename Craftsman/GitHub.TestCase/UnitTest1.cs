@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OpenQA.Selenium.Firefox;
+using System;
 using System.Linq;
 using Xunit;
 
@@ -9,6 +10,7 @@ namespace GitHub.TestCase
         [Fact]
         public void TestMethod1()
         {
+            var driver = new FirefoxDriver();
         }
     }
 }

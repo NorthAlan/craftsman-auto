@@ -1,4 +1,4 @@
-﻿using Craftsman.Core.AppSetting;
+﻿using Craftsman.Core;
 using System;
 using System.Collections.Generic;
 
@@ -22,7 +22,7 @@ namespace Craftsman.Core.Tools
         protected static string BuildBaseUrl(string appName)
         {
             var baseUrl = string.Empty;
-            var environment = TestSettingManager.GetAppSetting(SettingName.ENVIRONMENT);
+            var environment = SettingManager.GetAppSetting(SettingName.ENVIRONMENT);
 
             if (environment != "QA")
             {
