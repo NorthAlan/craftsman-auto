@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Craftsman.ServiceInvoker
+namespace Craftsman.Core
 {
-    public class ServiceInvoker
+    public interface IPageObject
     {
+        bool VerifyPage();
     }
 }

@@ -30,5 +30,12 @@ namespace Craftsman.Core.Manager
             var linkUrl = RouteMapper.BuildPageUrl("AppAlias.Coach", url);
             _driver.Url = linkUrl;
         }
+
+        public void BuildDefaultSetting()
+        {
+            _driver.Manage().Window.Maximize();
+            _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(120);
+        }
+        
     }
 }

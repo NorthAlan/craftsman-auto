@@ -48,7 +48,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="Component\NavigationBar.cs" />
+    <Compile Include="PageObject\CoachPageBase.cs" />
+    <Compile Include="PageObject\CoachSignInPage.cs" />
+    <Compile Include="PageObject\DatabaseProspectsPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -56,6 +59,17 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Database\" />
+    <Folder Include="ServiceCall\" />
+    <Folder Include="WorkFlow\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Craftsman.Core\Craftsman.Core.csproj">
+      <Project>{0d5f1b62-b6cf-409a-976c-c6b0ff05ed21}</Project>
+      <Name>Craftsman.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

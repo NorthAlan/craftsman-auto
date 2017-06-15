@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace JumpForward.Common
+namespace Craftsman.Core
 {
-    public class Class1
+    public interface IComponent
     {
     }
 }

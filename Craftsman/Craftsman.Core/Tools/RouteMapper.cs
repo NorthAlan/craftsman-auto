@@ -1,4 +1,5 @@
 ﻿using Craftsman.Core;
+using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
 
@@ -64,5 +65,13 @@ namespace Craftsman.Core.Tools
             _dicMap.Add("AppAlias.Elevation_SignIn", string.Format("{0}/#/Login", baseUrl));
             #endregion Elevation
         }
+
+
+        #region 
+        //public TPage GoTo<TPage>(IWebDriver driver) where TPage:  IPageObject, new()
+        //{
+            
+        //}
+        #endregion
     }
 }

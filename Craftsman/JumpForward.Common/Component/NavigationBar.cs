@@ -1,5 +1,4 @@
-﻿using Craftsman.Core.Tools;
-using OpenQA.Selenium;
+﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
 using System;
 using System.Collections.Generic;
@@ -7,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace JumpForward.PageObject.Component
+namespace JumpForward.Common.Component
 {
     public class NavigationBar
     {
@@ -32,12 +31,12 @@ namespace JumpForward.PageObject.Component
             //ex: .//*[@id='contentnavtop']/ul[contains(@class,'navMenu')]/*/a[text()='Databases']/following-sibling::div[1]//a[text()='Prospects']
             var mainMenuPath = string.Format(CST_MAIN_MENU_TEMP, mainMenu);
             var eleMainMenu = _driver.FindElement(By.XPath(mainMenuPath));
-            
+
             var action = new Actions(_driver);
             action.MoveToElement(eleMainMenu).Perform();
 
             var linkText = string.Format("{0}/following-sibling::div[1]//a[text()='{1}']", mainMenuPath, subMenu);
-            var linkImg  = string.Format("{0}/following-sibling::div[1]//span[text()='{1}']", mainMenuPath, subMenu);
+            var linkImg = string.Format("{0}/following-sibling::div[1]//span[text()='{1}']", mainMenuPath, subMenu);
             var eleSubMenu = _driver.FindElement(By.XPath(string.Format("{0} | {1}", linkText, linkImg)));
             //TODO: handler exception here.
 

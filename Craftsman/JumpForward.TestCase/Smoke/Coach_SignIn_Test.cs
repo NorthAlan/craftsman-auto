@@ -1,6 +1,5 @@
 ﻿using Craftsman.Core.Factory;
-using JumpForward.PageObject;
-using JumpForward.PageObject.Component;
+using JumpForward.Common.PageObject;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
@@ -28,6 +27,13 @@ namespace JumpForward.TestCase
             dbProspectsPage.NavigationTo("Databases", "Prospects");
             dbProspectsPage.NavigationTo("Email", "Sent");
             dbProspectsPage.Driver.Close();
+        }
+
+
+        public void Demo_Case()
+        {
+            //var page = RouteMapper.GoTo<IPageObject>();
+            //page.
         }
 
     }

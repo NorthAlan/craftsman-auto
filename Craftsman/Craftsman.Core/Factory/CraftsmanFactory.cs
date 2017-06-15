@@ -37,11 +37,14 @@ namespace Craftsman.Core.Factory
                 case "*chrome":
                     driver = new ChromeDriver(driverPath);
                     break;
-
+                //case "*remote":
+                //    break;
                 default:
                     throw new Exception("Create driver failed!");
             }
+            
             var manager = new WebDriverManager(driver);
+            manager.BuildDefaultSetting();
             return manager;
         }
 

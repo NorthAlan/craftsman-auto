@@ -55,6 +55,8 @@
     <Compile Include="Factory\PageComponentBase.cs" />
     <Compile Include="Factory\PageObjectBase.cs" />
     <Compile Include="Fixture\SingleBrowserFixture.cs" />
+    <Compile Include="IComponent.cs" />
+    <Compile Include="IPageObject.cs" />
     <Compile Include="Manager\IDriverManager.cs" />
     <Compile Include="Manager\WebDriverManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

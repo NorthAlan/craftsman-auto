@@ -1,5 +1,5 @@
 ﻿using Craftsman.Core.Factory;
-using JumpForward.PageObject;
+using JumpForward.Common.PageObject;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
 using System;
@@ -23,6 +23,5 @@ namespace JumpForward.TestCase
             objPage.SignIn("demicoach@activenetwork.com", "active");
             objPage.Driver.Close();
         }
-
     }
 }

@@ -8,9 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace JumpForward.PageObject
+namespace JumpForward.Common.PageObject
 {
-
     public class CoachSignInPage : PageObjectBase
     {
         public CoachSignInPage(IWebDriver driver) : base(driver)
@@ -44,6 +43,7 @@ namespace JumpForward.PageObject
             this.txtPassword.SendKeys(password);
 
             this.btnSignIn.Click();
+            WebElementKeeper.WaitingFor_InvisibilityOfElementLocated(this.Driver, By.Id("grid-loader-holder"));
             return new DatabaseProspectsPage(this.Driver);
         }
         #endregion

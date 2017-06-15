@@ -88,9 +88,9 @@
       <Project>{0d5f1b62-b6cf-409a-976c-c6b0ff05ed21}</Project>
       <Name>Craftsman.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\JumpForward.PageObject\JumpForward.PageObject.csproj">
-      <Project>{2f6bb2a7-61e3-4881-9735-83f225841a22}</Project>
-      <Name>JumpForward.PageObject</Name>
+    <ProjectReference Include="..\JumpForward.Common\JumpForward.Common.csproj">
+      <Project>{efc5c127-1973-415a-8644-12e794c6b4e5}</Project>
+      <Name>JumpForward.Common</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />
