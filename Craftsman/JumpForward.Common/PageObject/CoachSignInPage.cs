@@ -44,6 +44,7 @@ namespace JumpForward.Common.PageObject
 
             this.btnSignIn.Click();
             WebElementKeeper.WaitingFor_InvisibilityOfElementLocated(this.Driver, By.Id("grid-loader-holder"));
+            
             return new DatabaseProspectsPage(this.Driver);
         }
         #endregion
