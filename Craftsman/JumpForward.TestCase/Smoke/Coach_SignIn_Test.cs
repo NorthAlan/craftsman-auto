@@ -32,8 +32,20 @@ namespace JumpForward.TestCase
 
         public void Demo_Case()
         {
-            //var page = RouteMapper.GoTo<IPageObject>();
-            //page.
+            /*
+             * DataKeeper 数据持有
+             * ServiceInvoker 服务调用
+             * RouteMapper 路由映射
+             * 
+             * WorkflowFactory
+             * TestContext
+             */
+
+            //-->Data preparation.
+
+            //var page01 = RouteMapper.GoTo<IPageObject>();
+            //var page02 = page01.SomeAction();
+
         }
 
     }
