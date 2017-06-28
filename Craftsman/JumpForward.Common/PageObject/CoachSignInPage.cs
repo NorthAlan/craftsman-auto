@@ -47,6 +47,25 @@ namespace JumpForward.Common.PageObject
             
             return new DatabaseProspectsPage(this.Driver);
         }
+
+        /// <summary>
+        /// Compliance login
+        /// </summary>
+        /// <param name="userName"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
+        public ComplianceHomePage ComplianceSignIn(string userName, string password)
+        {
+            this.txtUserName.Clear();
+            this.txtPassword.Clear();
+
+            this.txtUserName.SendKeys(userName);
+            this.txtPassword.SendKeys(password);
+
+            this.btnSignIn.Click();
+            //WebElementKeeper.WaitingFor_InvisibilityOfElementLocated(this.Driver, By.Id("grid-loader-holder"));
+            return new ComplianceHomePage(this.Driver);
+        }
         #endregion
     }
 }

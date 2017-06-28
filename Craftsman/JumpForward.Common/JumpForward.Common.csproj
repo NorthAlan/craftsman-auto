@@ -48,10 +48,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Component\ComplianceNavigationBar.cs" />
     <Compile Include="Component\NavigationBar.cs" />
     <Compile Include="PageObject\CoachPageBase.cs" />
     <Compile Include="PageObject\CoachSignInPage.cs" />
+    <Compile Include="PageObject\ComplianceHomePage.cs" />
+    <Compile Include="PageObject\CompliancePageBase.cs" />
     <Compile Include="PageObject\DatabaseProspectsPage.cs" />
+    <Compile Include="PageObject\RosterCoachesAddPage.cs" />
+    <Compile Include="PageObject\RosterCoachesPage.cs" />
+    <Compile Include="PageObject\RosterPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
