@@ -24,19 +24,18 @@ namespace JumpForward.Common.PageObject
         [FindsBy(How = How.Id, Using = "bttnMainCoachAdd")]
         protected IWebElement btnAddCoach;
 
-
         [FindsBy(How = How.Id, Using = "bttnCoachAdd")]
         protected IWebElement btnAddNewCoach;
-
-
-
         #endregion
 
-
+        /// <summary>
+        /// AddNewCoach
+        /// </summary>
+        /// <returns>RosterCoachesAddPage</returns>
         public RosterCoachesAddPage AddNewCoach()
         {
-            btnAddCoach.Click();
-            btnAddNewCoach.Click();
+            this.btnAddCoach.Click();
+            this.btnAddNewCoach.Click();
             //Continue......Todo
             return new RosterCoachesAddPage(this.Driver);
         }

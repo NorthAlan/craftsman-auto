@@ -30,7 +30,7 @@ namespace JumpForward.Common.PageObject
 
         #region Action for test case
         /// <summary>
-        /// Sign In for Dashboard
+        /// Sign In
         /// </summary>
         /// <param name="userName">User name</param>
         /// <param name="password">Password</param>
@@ -45,9 +45,15 @@ namespace JumpForward.Common.PageObject
             this.btnSignIn.Click();              
         }
 
+        /// <summary>
+        /// Coach Login
+        /// </summary>
+        /// <param name="userName">User name</param>
+        /// <param name="password">Password</param>
+        /// <returns></returns>
         public DatabaseProspectsPage CoachSignIn(string userName, string password)
         {
-            SignIn(userName, password);
+            this.SignIn(userName, password);
             WaitSelector.WaitingFor_InvisibilityOfElementLocated(this.Driver, By.Id("grid-loader-holder"));
 
             return new DatabaseProspectsPage(this.Driver);
@@ -56,12 +62,12 @@ namespace JumpForward.Common.PageObject
         /// <summary>
         /// Compliance login
         /// </summary>
-        /// <param name="userName"></param>
-        /// <param name="password"></param>
+        /// <param name="userName">User name</param>
+        /// <param name="password">Password</param>
         /// <returns></returns>
         public ComplianceHomePage ComplianceSignIn(string userName, string password)
         {
-            SignIn(userName, password);
+            this.SignIn(userName, password);
             //WebElementKeeper.WaitingFor_InvisibilityOfElementLocated(this.Driver, By.Id("grid-loader-holder"));
             return new ComplianceHomePage(this.Driver);
         }

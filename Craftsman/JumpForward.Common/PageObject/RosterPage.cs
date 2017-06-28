@@ -21,12 +21,14 @@ namespace JumpForward.Common.PageObject
         [FindsBy(How = How.Id, Using = "atabNewRoster")]
         protected IWebElement tabRoster;
 
-
         [FindsBy(How = How.Id, Using = "atabCoaches")]
         protected IWebElement tabCoaches;
-
         #endregion Page elements
 
+        /// <summary>
+        /// RedirectToCocahes
+        /// </summary>
+        /// <returns>RosterCoachesPage</returns>
         public RosterCoachesPage RedirectToCocahes()
         {
             this.tabCoaches.Click();
