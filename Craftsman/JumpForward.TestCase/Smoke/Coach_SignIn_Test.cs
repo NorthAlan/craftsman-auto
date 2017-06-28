@@ -22,7 +22,7 @@ namespace JumpForward.TestCase
             var manager = CraftsmanFactory.CreateDriverManager();
             manager.NavigateTo(string.Empty);
             var signInPage = CraftsmanFactory.CreatePageObject<CoachSignInPage>(manager.Driver);
-            var dbProspectsPage = signInPage.SignIn("demicoach@activenetwork.com", "active");
+            var dbProspectsPage = signInPage.CoachSignIn("demicoach@activenetwork.com", "active");
 
             dbProspectsPage.NavigationTo("Databases", "Add Prospect");
             dbProspectsPage.NavigationTo("Databases", "Prospects");

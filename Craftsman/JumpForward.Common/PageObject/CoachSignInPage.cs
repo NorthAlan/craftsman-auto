@@ -34,7 +34,7 @@ namespace JumpForward.Common.PageObject
         /// </summary>
         /// <param name="userName">User name</param>
         /// <param name="password">Password</param>
-        public DatabaseProspectsPage SignIn(string userName, string password)
+        private void SignIn(string userName, string password)
         {
             this.txtUserName.Clear();
             this.txtPassword.Clear();
@@ -42,9 +42,14 @@ namespace JumpForward.Common.PageObject
             this.txtUserName.SendKeys(userName);
             this.txtPassword.SendKeys(password);
 
-            this.btnSignIn.Click();
+            this.btnSignIn.Click();              
+        }
+
+        public DatabaseProspectsPage CoachSignIn(string userName, string password)
+        {
+            SignIn(userName, password);
             WaitSelector.WaitingFor_InvisibilityOfElementLocated(this.Driver, By.Id("grid-loader-holder"));
-            
+
             return new DatabaseProspectsPage(this.Driver);
         }
 
@@ -56,13 +61,7 @@ namespace JumpForward.Common.PageObject
         /// <returns></returns>
         public ComplianceHomePage ComplianceSignIn(string userName, string password)
         {
-            this.txtUserName.Clear();
-            this.txtPassword.Clear();
-
-            this.txtUserName.SendKeys(userName);
-            this.txtPassword.SendKeys(password);
-
-            this.btnSignIn.Click();
+            SignIn(userName, password);
             //WebElementKeeper.WaitingFor_InvisibilityOfElementLocated(this.Driver, By.Id("grid-loader-holder"));
             return new ComplianceHomePage(this.Driver);
         }
