@@ -14,7 +14,7 @@ namespace JumpForward.Common.PageObject
     {
         public CoachSignInPage(IWebDriver driver) : base(driver)
         {
-            WebElementKeeper.WaitingFor_ElementExists(this.Driver, By.Id("ContentPlaceHolder1_txtUsername"));
+            WaitSelector.WaitingFor_ElementExists(this.Driver, By.Id("ContentPlaceHolder1_txtUsername"));
         }
         #region Page elements
         [FindsBy(How = How.Id, Using = "ContentPlaceHolder1_txtUsername")]
@@ -43,7 +43,7 @@ namespace JumpForward.Common.PageObject
             this.txtPassword.SendKeys(password);
 
             this.btnSignIn.Click();
-            WebElementKeeper.WaitingFor_InvisibilityOfElementLocated(this.Driver, By.Id("grid-loader-holder"));
+            WaitSelector.WaitingFor_InvisibilityOfElementLocated(this.Driver, By.Id("grid-loader-holder"));
             
             return new DatabaseProspectsPage(this.Driver);
         }

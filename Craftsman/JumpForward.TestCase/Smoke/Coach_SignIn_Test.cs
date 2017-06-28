@@ -1,4 +1,5 @@
 ﻿using Craftsman.Core.Factory;
+using Craftsman.Core.Tools;
 using JumpForward.Common.PageObject;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
@@ -32,6 +33,7 @@ namespace JumpForward.TestCase
 
         public void Demo_Case()
         {
+            
             /*
              * DataKeeper 数据持有
              * ServiceInvoker 服务调用

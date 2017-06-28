@@ -6,14 +6,15 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Craftsman.Core.Tools
 {
-    public class WebElementKeeper
+    public class WaitSelector
     {
         private static TimeSpan _timeoutInterval;
-        static WebElementKeeper()
+        static WaitSelector()
         {
             _timeoutInterval = TimeSpan.FromSeconds(30);
             int conifgInterval;
@@ -104,13 +105,58 @@ namespace Craftsman.Core.Tools
 
         public static bool WaitingFor_ElementIsVisible(IWebDriver driver, By by, TimeSpan timeOut)
         {
-            return (WaitingFor_GetElementWhenExists(driver, by, timeOut) != null) ? true : false;
+            return (WaitingFor_GetElementWhenIsVisible(driver, by, timeOut) != null) ? true : false;
         }
         public static bool WaitingFor_ElementIsVisible(IWebDriver driver, By by)
         {
             return WaitingFor_ElementIsVisible(driver, by, _timeoutInterval);
         }
         #endregion Element is visible
+
+        #region Element is to be clickable
+        public static IWebElement WaitingFor_GetElementWhenToBeClickable(IWebDriver driver, By by, TimeSpan timeOut)
+        {
+            IWebElement element;
+            var wait = new WebDriverWait(driver, timeOut);
+            try
+            {
+                element = wait.Until(ExpectedConditions.ElementToBeClickable(by));
+            }
+            catch { element = null; }
+            return element;
+        }
+        public static IWebElement WaitingFor_GetElementWhenToBeClickable(IWebDriver driver, By by)
+        {
+            return WaitingFor_GetElementWhenToBeClickable(driver, by, _timeoutInterval);
+        }
+
+        public static ReadOnlyCollection<IWebElement> WaitingFor_GetElementsWhenToBeClickable(IWebDriver driver, By by, TimeSpan timeOut)
+        {
+            ReadOnlyCollection<IWebElement> elements;
+            var wait = new WebDriverWait(driver, timeOut);
+            try
+            {
+                wait.Until(ExpectedConditions.ElementToBeClickable(by));
+                elements = driver.FindElements(by);
+            }
+            catch { elements = null; }
+            return elements;
+        }
+        public static ReadOnlyCollection<IWebElement> WaitingFor_GetElementsWhenToBeClickable(IWebDriver driver, By by)
+        {
+            return WaitingFor_GetElementsWhenToBeClickable(driver, by, _timeoutInterval);
+        }
+
+        public static bool WaitingFor_ElementToBeClickable(IWebDriver driver, By by, TimeSpan timeOut)
+        {
+            return (WaitingFor_GetElementWhenToBeClickable(driver, by, timeOut) != null) ? true : false;
+        }
+        public static bool WaitingFor_ElementToBeClickable(IWebDriver driver, By by)
+        {
+            return WaitingFor_ElementToBeClickable(driver, by, _timeoutInterval);
+        }
+        #endregion Element is to be clickable
+
         #endregion Waiting For Element
 
         #region Waiting For Url
@@ -247,5 +293,13 @@ namespace Craftsman.Core.Tools
             return WaitingFor_WebElementAttributeChanged(driver, locator, attrName, _timeoutInterval);
         }
         #endregion Waiting For State changed
+
+        #region Element is exist
+        public static void HardWait(TimeSpan time)
+        {
+            //Temporary use, need to improve.
+            Thread.Sleep(time);
+        }
+        #endregion Element is exist
     }
 }

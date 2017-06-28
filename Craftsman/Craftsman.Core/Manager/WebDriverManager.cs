@@ -34,7 +34,7 @@ namespace Craftsman.Core.Manager
         public void BuildDefaultSetting()
         {
             _driver.Manage().Window.Maximize();
-            _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(120);
+            //_driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(120);
         }
         
     }

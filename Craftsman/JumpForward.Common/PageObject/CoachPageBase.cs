@@ -1,4 +1,5 @@
 ﻿using Craftsman.Core.Factory;
+using Craftsman.Core.Tools;
 using JumpForward.Common.Component;
 using OpenQA.Selenium;
 using System;
@@ -11,18 +12,43 @@ namespace JumpForward.Common.PageObject
 {
     public class CoachPageBase : PageObjectBase
     {
-        protected IWebDriver _driver;
         protected NavigationBar _navigationBar;
 
         public CoachPageBase(IWebDriver driver) : base(driver)
         {
             //TODO: Verify page
             _navigationBar = new NavigationBar(driver, By.Id("navtop"));
+            ClosePopWindow(driver);
         }
 
         public void NavigationTo(string mainMenu, string subMenu)
         {
             _navigationBar.NavigationTo(mainMenu, subMenu);
+            ClosePopWindow(this.Driver);
+        }
+
+        protected void ClosePopWindow(IWebDriver driver)
+        {
+            var waitTime = TimeSpan.FromSeconds(3);
+            var waitHard = TimeSpan.FromSeconds(1);
+
+            // New Updated Calendar Feature!
+            if (WaitSelector.WaitingFor_ElementExists(driver, By.XPath("//span[contains(text(),'No thanks')]"), waitTime))
+            {
+                var btnNoThanks = WaitSelector.WaitingFor_GetElementWhenIsVisible(driver, By.XPath("//span[contains(text(),'No thanks')]"));
+
+                WaitSelector.HardWait(waitHard);
+                btnNoThanks.Click();
+                WaitSelector.HardWait(waitHard);
+            }
+            // SUMMER IS HERE AGAIN!!!
+            if (WaitSelector.WaitingFor_ElementExists(driver, By.XPath("//span[contains(text(),'Ok, got it')]"), waitTime))
+            {
+                var btnGotIt = WaitSelector.WaitingFor_GetElementWhenIsVisible(driver, By.XPath("//span[contains(text(),'Ok, got it')]"));
+                WaitSelector.HardWait(waitHard);
+                btnGotIt.Click();
+                WaitSelector.HardWait(waitHard);
+            }
         }
 
     }

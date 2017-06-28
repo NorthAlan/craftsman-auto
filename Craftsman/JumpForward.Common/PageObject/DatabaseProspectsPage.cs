@@ -14,12 +14,7 @@ namespace JumpForward.Common.PageObject
     {
         public DatabaseProspectsPage(IWebDriver driver) : base(driver)
         {
-            var btnGotIt = WebElementKeeper.WaitingFor_GetElementWhenIsVisible(driver, By.XPath("//span[contains(.,'Ok, got it')]"));
-            if (btnGotIt.Displayed) {
-                Thread.Sleep(TimeSpan.FromSeconds(1));
-                btnGotIt.Click();
-                Thread.Sleep(TimeSpan.FromSeconds(1));
-            }
+            
         }
     }
 }
