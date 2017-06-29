@@ -2,6 +2,8 @@
 using Craftsman.Core.Tools;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
+using OpenQA.Selenium.Support.UI;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -97,8 +99,32 @@ namespace JumpForward.Common.PageObject
             return new RosterPage(this.Driver);
         }
 
-        public RosterPage Save()
-        { 
+        public RosterPage Save(string firstName, string lastName, string emial)
+        {
+            this.txtFirstName.SendKeys(firstName);
+            this.txtMiddleName.SendKeys("A");
+            this.txtLastName.SendKeys(lastName);
+            this.radMale.Click();
+            this.txtTitle.SendKeys("Automation Test");
+            this.txtEmail.SendKeys(emial);
+            this.txtAddress1.SendKeys(firstName + " Home");
+            this.txtCity.SendKeys("Test City");
+            this.txtZip.SendKeys("56894");
+            this.radAllowSignOnYes.Click();
+
+            SelectElement ddlStateSelect = new SelectElement(ddlState);
+            ddlStateSelect.SelectByIndex(1);
+            SelectElement ddlStatusSelect = new SelectElement(ddlStatus);
+            ddlStatusSelect.SelectByText("Active");
+            SelectElement ddlAccessSelect = new SelectElement(ddlCoachSiteAccess);
+            ddlAccessSelect.SelectByText("Edit");
+            SelectElement ddlNewCoachSelect = new SelectElement(ddlRequestNewCoach);
+            ddlNewCoachSelect.SelectByText("Full Adding Authority");
+            SelectElement ddlPlaySeasonSelect = new SelectElement(ddlPlayingSeasonSetup);
+            ddlPlaySeasonSelect.SelectByText("Setup Season");
+            SelectElement ddlCoachCategorySelect = new SelectElement(ddlCoachCategory);
+            ddlCoachCategorySelect.SelectByText("Head");   
+            
             this.btnSave.Click();
             return new RosterPage(this.Driver);
         }

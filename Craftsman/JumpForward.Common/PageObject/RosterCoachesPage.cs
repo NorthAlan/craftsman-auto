@@ -26,18 +26,45 @@ namespace JumpForward.Common.PageObject
 
         [FindsBy(How = How.Id, Using = "bttnCoachAdd")]
         protected IWebElement btnAddNewCoach;
+
+        [FindsBy(How = How.Id, Using = "rosterCoachGrid")]
+        protected IWebElement tableCoach;
+
+        [FindsBy(How = How.XPath, Using = "//table[@id='rosterCoachGrid']/tbody/tr")]
+        protected IWebElement tableCoachRows;
+
+
+
         #endregion
 
         /// <summary>
         /// AddNewCoach
         /// </summary>
         /// <returns>RosterCoachesAddPage</returns>
-        public RosterCoachesAddPage AddNewCoach()
+        public RosterPage AddNewCoach(string firstName, string lastName, string emial)
         {
             this.btnAddCoach.Click();
             this.btnAddNewCoach.Click();
-            //Continue......Todo
-            return new RosterCoachesAddPage(this.Driver);
+            RosterCoachesAddPage rosterCoachesAddPage = new RosterCoachesAddPage(this.Driver);
+            RosterPage rosterPage = rosterCoachesAddPage.Save(firstName, lastName, emial);
+            
+            return rosterPage;
+        }
+
+        public bool FindCoachbyEmail(string email)
+        { 
+            var emial = string.Format("//table[@id='rosterCoachGrid']/tbody/tr/td[text()='{0}']", email);
+
+            try
+            {
+                this.Driver.FindElement(By.XPath(emial));
+                return true;
+            }
+            catch(NoSuchElementException ex)
+            {
+                return false;
+            }
+             
         }
 
     }

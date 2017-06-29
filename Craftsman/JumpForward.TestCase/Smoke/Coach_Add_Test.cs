@@ -24,11 +24,19 @@ namespace JumpForward.TestCase.Smoke
             var comHomePage = signInPage.ComplianceSignIn("demicompliance@activenetwork.com", "active");
 
             comHomePage.NavigationTo("Roster", "Football", 18);
-            
+
+            string firstName = "Clark";
+            string lastName = "Peng";
+
+            string guid = Guid.NewGuid().ToString().Substring(0, 5);
+            string random = Convert.ToString(new Random().Next(1, 100));
+            string emial = firstName + "." + lastName + guid + random + "@activetest.com";
+
             var rosterHomePage = CraftsmanFactory.CreatePageObject<RosterPage>(manager.Driver);
             var rosterCoachesPage = rosterHomePage.RedirectToCocahes();
-            var rosterCoachesAddPage = rosterCoachesPage.AddNewCoach();
-            var rosterPage = rosterCoachesAddPage.Save();
+            var rosterPage = rosterCoachesPage.AddNewCoach(firstName, lastName, emial);
+            var rosterCoachesResultPage = rosterHomePage.RedirectToCocahes();
+            rosterCoachesResultPage.FindCoachbyEmail(emial);
 
             rosterPage.Driver.Close();
         }
