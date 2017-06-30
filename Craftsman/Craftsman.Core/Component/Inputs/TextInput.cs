@@ -18,6 +18,11 @@ namespace Craftsman.Core.Component
             this.OriginalElement.SendKeys(text);
         }
 
+        public void Clear()
+        {
+            this.OriginalElement.Clear();
+        }
+
         public string Text
         {
             get

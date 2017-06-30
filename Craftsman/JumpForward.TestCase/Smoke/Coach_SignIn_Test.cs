@@ -31,11 +31,13 @@ namespace JumpForward.TestCase
             dbProspectsPage.NavigationTo("Email", "Sent");
             dbProspectsPage.Driver.Close();
         }
+
         [Fact(DisplayName = cst_DisplayName + ".Demo_Case_AddCoach")]
         public void Demo_Case_AddCoach()
         {
             var manager = CraftsmanFactory.CreateDriverManager();
             manager.NavigateTo(string.Empty);
+
             var signInPage = CraftsmanFactory.CreatePageObject<CoachSignInPage>(manager.Driver);
             var dbProspectsPage = signInPage.SignIn("demicoach@activenetwork.com", "active");
             var staffPage = dbProspectsPage.Settings.Select<CoachStaffPage>();
