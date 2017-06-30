@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using Craftsman.Core.Tools;
+using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -43,9 +44,28 @@ namespace Craftsman.Core
             throw new NotImplementedException();
         }
 
-        public bool WaitingFor(ComponentWaitType type, TimeSpan timeout)
+        
+        public void Waiting(For type, TimeSpan timeout)
         {
-            throw new NotImplementedException();
+            switch (type)
+            {
+                case For.Exist:
+                    WaitSelector.WaitingFor_ElementExists(this._driver, this._by, timeout);
+                    break;
+                case For.Visible:
+                    WaitSelector.WaitingFor_ElementIsVisible(this._driver, this._by, timeout);
+                    break;
+                case For.Clickable:
+                    WaitSelector.WaitingFor_ElementToBeClickable(this._driver, this._by, timeout);
+                    break;
+                default:
+                    throw new NotImplementedException();
+            }
+        }
+
+        public void Waiting(For type)
+        {
+            Waiting(type, TimeSpan.FromSeconds(30));
         }
     }
 }

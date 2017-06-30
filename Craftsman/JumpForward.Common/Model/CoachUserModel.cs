@@ -23,5 +23,7 @@ namespace JumpForward.Common.Model
         public string PhoneNumberType { get; set; }
 
         public string Comment { get; set; }
+
+        public string Sports { get; set; }        
     }
 }

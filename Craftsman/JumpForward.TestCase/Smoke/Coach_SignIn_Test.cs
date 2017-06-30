@@ -50,7 +50,8 @@ namespace JumpForward.TestCase
                 Gender = GenderType.Male,
                 PhoneNumber = "18600000000",
                 Comment = "Comment here.",
-                Title = "Test Titile"
+                Title = "Test Titile",
+                Sports = "Men's Basketball"
                 //PhoneNumberType
             };
 

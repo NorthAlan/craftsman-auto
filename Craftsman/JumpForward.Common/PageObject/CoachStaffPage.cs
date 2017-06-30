@@ -1,4 +1,5 @@
-﻿using Craftsman.Core.Component;
+﻿using Craftsman.Core;
+using Craftsman.Core.Component;
 using Craftsman.Core.Tools;
 using JumpForward.Common.Model;
 using OpenQA.Selenium;
@@ -32,6 +33,10 @@ namespace JumpForward.Common.PageObject
             btnPopupAddUser = new Button(driver, By.XPath(".//button/span[normalize-space(text())='Add User']"));
             btnPopupOk = new Button(driver, By.XPath(".//button/span[normalize-space(text())='Ok']"));
 
+            misChooseSportsInput = new MutiInputSelect(driver, By.XPath("//*[@id='coach-available-sports_taglist']/parent::*"));
+
+            txaDialogTitleNewCoach = new TextArea(driver, By.XPath("//span[@class='ui-dialog-title' and text()='New Coach Profile Information']"));
+            txaChooseSports = new TextArea(driver, By.XPath("//h2[text()='Choose Sports']"));
         }
 
         #region Page elements
@@ -49,12 +54,10 @@ namespace JumpForward.Common.PageObject
         protected Button btnPopupAddUser;
         protected Button btnPopupOk;
 
-        //[FindsBy(How = How.Id, Using = "coach-user-last")]
-        //protected IWebElement ddlGender; 
+        protected MutiInputSelect misChooseSportsInput;
 
-        //[FindsBy(How = How.Id, Using = "//div[contains(@class,'k-multiselect-wrap k-floatwrap')]")]
-        protected IWebElement ddlChooseSportsInput { get { return this.Driver.FindElement(By.XPath("//*[@id='coach-available-sports_taglist']/parent::*")); } }
-        protected SelectElement ddlChooseSportsSelect { get { return (SelectElement) this.Driver.FindElement(By.Id("coach-available-sports")); } }
+        protected TextArea txaDialogTitleNewCoach;
+        protected TextArea txaChooseSports;
         #endregion add user popup
 
         #endregion Page elements
@@ -63,9 +66,19 @@ namespace JumpForward.Common.PageObject
         public CoachStaffPage AddNewUser(CoachUserModel model)
         {
             this.btnAddUser.Click();
+            InputBaseInformation(model);    //input base information.
+            ChooseSports(model);            //choose sports.
 
-            //input information.
-            WaitSelector.WaitingFor_ElementExists(this.Driver, By.Id("add-coach-user-dialog"));
+            //New Coach Profile Information: Message box.
+            btnPopupOk.Waiting(For.Clickable);
+            btnPopupOk.Click();
+
+            return this;
+        }
+
+        protected void InputBaseInformation(CoachUserModel model)
+        {
+            txaDialogTitleNewCoach.Waiting(For.Exist);
             this.txtFirstName.SendKeys(model.FirstName);
             this.txtLastName.SendKeys(model.LastName);
             //this.ddlGender.SendKeys(model.Gender);
@@ -74,21 +87,18 @@ namespace JumpForward.Common.PageObject
             this.txtPhoneNumber.SendKeys(model.PhoneNumber);
             //this.txtPhoneNumberType.SendKeys(model.PhoneNumberType);
             this.txtComment.SendKeys(model.Comment);
+
+            btnAssignSports.Waiting(For.Clickable);
             btnAssignSports.Click();
+        }
 
-            var action = new Actions(this.Driver);
-            action.MoveToElement(ddlChooseSportsInput)
-                .Click()
-                .SendKeys("Men's Basketball")
-                .SendKeys(Keys.Enter)
-                .Perform();
+        protected void ChooseSports(CoachUserModel model)
+        {
+            txaChooseSports.Waiting(For.Exist);
+            misChooseSportsInput.SelectByText(model.Sports);
 
-            WaitSelector.HardWait(TimeSpan.FromSeconds(3));            
+            btnPopupAddUser.Waiting(For.Clickable);
             btnPopupAddUser.Click();
-            WaitSelector.HardWait(TimeSpan.FromSeconds(3));
-            btnPopupOk.Click();
-
-            return this;
         }
         #endregion actions
     }

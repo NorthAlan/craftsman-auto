@@ -6,18 +6,22 @@ using System.Threading.Tasks;
 
 namespace Craftsman.Core
 {
-    public enum ComponentWaitType
+    public enum For
     {
-        IsExist,
-        IsVisible,
-        IsClickable,
+        Exist,
+        Visible,
+        Clickable,
 
+        NotExist,
+        NotVisible,
+        NotClickable
     }
     public interface IComponent
     {
         bool IsExist();
         bool IsVisible();
         bool IsClickable();
-        bool WaitingFor(ComponentWaitType type, TimeSpan timeout);
+        void Waiting(For type);
+        void Waiting(For type, TimeSpan timeout);
     }
 }

@@ -73,6 +73,7 @@
     <Compile Include="Component\Inputs\CheckBoxList.cs" />
     <Compile Include="Component\Inputs\DateInput.cs" />
     <Compile Include="Component\Inputs\HiddenInput.cs" />
+    <Compile Include="Component\MultiSelectionInput.cs" />
     <Compile Include="Component\Inputs\NumberInput.cs" />
     <Compile Include="Component\Inputs\PasswordInput.cs" />
     <Compile Include="Component\Inputs\RadioButton.cs" />
@@ -80,11 +81,11 @@
     <Compile Include="Component\Inputs\TextInput.cs" />
     <Compile Include="Component\Inputs\TimeInput.cs" />
     <Compile Include="Component\Link.cs" />
-    <Compile Include="Component\Inputs\Lists\ControlList.cs" />
-    <Compile Include="Component\Inputs\Lists\ItemsControl.cs" />
-    <Compile Include="Component\Inputs\Lists\ListItem.cs" />
-    <Compile Include="Component\Inputs\Lists\OrderedList.cs" />
-    <Compile Include="Component\Inputs\Lists\UnorderedList.cs" />
+    <Compile Include="Component\Lists\ControlList.cs" />
+    <Compile Include="Component\Lists\ItemsControl.cs" />
+    <Compile Include="Component\Lists\ListItem.cs" />
+    <Compile Include="Component\Lists\OrderedList.cs" />
+    <Compile Include="Component\Lists\UnorderedList.cs" />
     <Compile Include="Component\Select.cs" />
     <Compile Include="Component\Table.cs" />
     <Compile Include="Component\TextArea.cs" />
