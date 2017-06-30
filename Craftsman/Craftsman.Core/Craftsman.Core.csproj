@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="AppSetting\SettingManager.cs" />
     <Compile Include="AppSetting\SettingName.cs" />
+    <Compile Include="BaseComponent.cs" />
     <Compile Include="Component\Button.cs" />
     <Compile Include="Component\Clickable.cs" />
     <Compile Include="Component\Content\Currency.cs" />
@@ -72,6 +73,7 @@
     <Compile Include="Component\Inputs\CheckBoxList.cs" />
     <Compile Include="Component\Inputs\DateInput.cs" />
     <Compile Include="Component\Inputs\HiddenInput.cs" />
+    <Compile Include="Component\MultiSelectionInput.cs" />
     <Compile Include="Component\Inputs\NumberInput.cs" />
     <Compile Include="Component\Inputs\PasswordInput.cs" />
     <Compile Include="Component\Inputs\RadioButton.cs" />

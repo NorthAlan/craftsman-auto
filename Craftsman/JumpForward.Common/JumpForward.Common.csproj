@@ -49,6 +49,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Component\NavigationBar.cs" />
+    <Compile Include="Component\SettingsIcon.cs" />
+    <Compile Include="Model\CoachUserModel.cs" />
+    <Compile Include="Model\GenderType.cs" />
+    <Compile Include="PageObject\CoachAddNewsPage.cs" />
+    <Compile Include="PageObject\CoachSettingsPage.cs" />
+    <Compile Include="PageObject\CoachStaffPage.cs" />
+    <Compile Include="PageObject\CoachMyProfilePage.cs" />
     <Compile Include="PageObject\CoachPageBase.cs" />
     <Compile Include="PageObject\CoachSignInPage.cs" />
     <Compile Include="PageObject\DatabaseProspectsPage.cs" />
