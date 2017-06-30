@@ -32,6 +32,7 @@ namespace Craftsman.Core.Factory
                     break;
                 case "*firefox":
                     var options = new FirefoxOptions();
+                    
                     driver = new FirefoxDriver();
                     break;
                 case "*chrome":
