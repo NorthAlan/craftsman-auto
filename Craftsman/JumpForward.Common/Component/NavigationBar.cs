@@ -1,4 +1,6 @@
-﻿using Craftsman.Core.Tools;
+﻿using Craftsman.Core;
+using Craftsman.Core.Factory;
+using Craftsman.Core.Tools;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
 using System;
@@ -27,7 +29,7 @@ namespace JumpForward.Common.Component
         /// </summary>
         /// <param name="mainMenu">mainMenu</param>
         /// <param name="subMenu">subMenu</param>
-        public void NavigationTo(string mainMenu, string subMenu)
+        public void Select(string mainMenu, string subMenu)
         {
             
             //ex: .//*[@id='contentnavtop']/ul[contains(@class,'navMenu')]/*/a[text()='Databases']/following-sibling::div[1]//a[text()='Prospects']
@@ -46,6 +48,13 @@ namespace JumpForward.Common.Component
             //TODO: handler exception here.
 
             eleSubMenu.Click();
+            
+        }
+
+        public T Select<T>(string mainMenu, string subMenu) where T : PageObjectBase
+        {
+            Select(mainMenu, subMenu);
+            return TestContainer.Router.Build<T>();
         }
     }
 }

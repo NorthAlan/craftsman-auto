@@ -15,6 +15,12 @@ namespace Craftsman.Core.Tools
             InitializationDicMap();
         }
 
+
+        public static T GoTo<T>() where T : IPageObject
+        {
+            throw new NotImplementedException();
+        }
+
         /// <summary>
         /// bulid base url
         /// </summary>

@@ -29,6 +29,18 @@ namespace Craftsman.Core
                 throw new Exception("Can not get WebElement!");
             }
         }
+
+        public List<IWebElement> OriginalElements
+        {
+            get
+            {
+                if (this._driver != null)
+                {
+                    return this._driver.FindElements(this._by).ToList();
+                }
+                throw new Exception("Can not get WebElement!");
+            }
+        }
         public bool IsClickable()
         {
             throw new NotImplementedException();

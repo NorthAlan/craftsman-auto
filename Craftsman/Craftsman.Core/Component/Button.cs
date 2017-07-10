@@ -15,6 +15,7 @@ namespace Craftsman.Core.Component
 
         public void Click()
         {
+            this.Waiting(For.Clickable);
             this.OriginalElement.Click();
         }
 

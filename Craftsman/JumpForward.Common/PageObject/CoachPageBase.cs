@@ -26,15 +26,11 @@ namespace JumpForward.Common.PageObject
 
         public SettingsIcon Settings { get { return _settingsIcon; } }
 
-        public void NavigationTo(string mainMenu, string subMenu)
-        {
-            _navigationBar.NavigationTo(mainMenu, subMenu);
-            ClosePopWindow(this.Driver);
-        }
+        public NavigationBar NavMenu { get { return _navigationBar; } }
 
         protected void ClosePopWindow(IWebDriver driver)
         {
-            var waitTime = TimeSpan.FromSeconds(3);
+            var waitTime = TimeSpan.FromSeconds(5);
             var waitHard = TimeSpan.FromSeconds(1);
 
             // New Updated Calendar Feature!
@@ -46,6 +42,14 @@ namespace JumpForward.Common.PageObject
                 btnNoThanks.Click();
                 WaitSelector.HardWait(waitHard);
             }
+            if (WaitSelector.WaitingFor_ElementExists(driver, By.XPath("//span[contains(text(),'Close') and contains(@class,'close-link')]"), waitTime))
+            {
+                var btnClose = WaitSelector.WaitingFor_GetElementWhenIsVisible(driver, By.XPath("//span[contains(text(),'Close') and contains(@class,'close-link')]"));
+                WaitSelector.HardWait(waitHard);
+                btnClose.Click();
+                WaitSelector.HardWait(waitHard);
+            }
+
             // SUMMER IS HERE AGAIN!!!
             if (WaitSelector.WaitingFor_ElementExists(driver, By.XPath("//span[contains(text(),'Ok, got it')]"), waitTime))
             {
@@ -54,6 +58,8 @@ namespace JumpForward.Common.PageObject
                 btnGotIt.Click();
                 WaitSelector.HardWait(waitHard);
             }
+            
+            //
         }
 
     }

@@ -46,18 +46,42 @@
     <Reference Include="WebDriver.Support, Version=3.4.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Selenium.Support.3.4.0\lib\net40\WebDriver.Support.dll</HintPath>
     </Reference>
+    <Reference Include="xunit.abstractions, Version=2.0.0.0, Culture=neutral, PublicKeyToken=8d05b1bb7a6fdb6c, processorArchitecture=MSIL">
+      <HintPath>..\packages\xunit.abstractions.2.0.0\lib\net35\xunit.abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="xunit.assert, Version=2.1.0.3179, Culture=neutral, PublicKeyToken=8d05b1bb7a6fdb6c, processorArchitecture=MSIL">
+      <HintPath>..\packages\xunit.assert.2.1.0\lib\dotnet\xunit.assert.dll</HintPath>
+    </Reference>
+    <Reference Include="xunit.core, Version=2.1.0.3179, Culture=neutral, PublicKeyToken=8d05b1bb7a6fdb6c, processorArchitecture=MSIL">
+      <HintPath>..\packages\xunit.extensibility.core.2.1.0\lib\dotnet\xunit.core.dll</HintPath>
+    </Reference>
+    <Reference Include="xunit.execution.desktop, Version=2.1.0.3179, Culture=neutral, PublicKeyToken=8d05b1bb7a6fdb6c, processorArchitecture=MSIL">
+      <HintPath>..\packages\xunit.extensibility.execution.2.1.0\lib\net45\xunit.execution.desktop.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Component\JumpForwardCamperQuestion.cs" />
+    <Compile Include="Component\JumpForwardSelect.cs" />
+    <Compile Include="Component\JumpForwardTable.cs" />
     <Compile Include="Component\NavigationBar.cs" />
     <Compile Include="Component\SettingsIcon.cs" />
+    <Compile Include="JumpForwardTestBase.cs" />
+    <Compile Include="Model\CampItemModel.cs" />
+    <Compile Include="Model\CampModel.cs" />
     <Compile Include="Model\CoachUserModel.cs" />
+    <Compile Include="Model\CustomQuestionModel.cs" />
+    <Compile Include="Model\CustomWaiver.cs" />
+    <Compile Include="Model\DefaultCamperQuestionModel.cs" />
     <Compile Include="Model\GenderType.cs" />
+    <Compile Include="Model\PurchaseModel.cs" />
     <Compile Include="PageObject\CoachAddNewsPage.cs" />
     <Compile Include="PageObject\CoachSettingsPage.cs" />
     <Compile Include="PageObject\CoachStaffPage.cs" />
     <Compile Include="PageObject\CoachMyProfilePage.cs" />
     <Compile Include="PageObject\CoachPageBase.cs" />
     <Compile Include="PageObject\CoachSignInPage.cs" />
+    <Compile Include="PageObject\DatabaseCampsDetailPage.cs" />
+    <Compile Include="PageObject\DatabaseCampsPage.cs" />
     <Compile Include="PageObject\DatabaseProspectsPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

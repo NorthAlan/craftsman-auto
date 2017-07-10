@@ -19,5 +19,10 @@ namespace Craftsman.Core.Manager
         /// </summary>
         /// <param name="url"></param>
         void NavigateTo(string url);
+
+        /*
+         * 单例Driver
+         * 多个Driver
+         */
     }
 }

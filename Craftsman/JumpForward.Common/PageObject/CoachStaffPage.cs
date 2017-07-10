@@ -76,6 +76,7 @@ namespace JumpForward.Common.PageObject
             return this;
         }
 
+
         protected void InputBaseInformation(CoachUserModel model)
         {
             txaDialogTitleNewCoach.Waiting(For.Exist);

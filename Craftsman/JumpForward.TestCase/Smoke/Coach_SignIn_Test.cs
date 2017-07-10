@@ -26,9 +26,9 @@ namespace JumpForward.TestCase
             var signInPage = CraftsmanFactory.CreatePageObject<CoachSignInPage>(manager.Driver);
             var dbProspectsPage = signInPage.SignIn("demicoach@activenetwork.com", "active");
 
-            dbProspectsPage.NavigationTo("Databases", "Add Prospect");
-            dbProspectsPage.NavigationTo("Databases", "Prospects");
-            dbProspectsPage.NavigationTo("Email", "Sent");
+            dbProspectsPage.NavMenu.Select("Databases", "Add Prospect");
+            dbProspectsPage.NavMenu.Select("Databases", "Prospects");
+            dbProspectsPage.NavMenu.Select("Email", "Sent");
             dbProspectsPage.Driver.Close();
         }
 
@@ -61,6 +61,7 @@ namespace JumpForward.TestCase
         public void Demo_Case()
         {
             
+
             /*
              * DataKeeper 数据持有
              * ServiceInvoker 服务调用

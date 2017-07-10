@@ -4,24 +4,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Interactions;
 
 namespace Craftsman.Core.Component
 {
-    public class TextInput : BaseComponent
+    public class RichTextBox : BaseComponent
     {
-        public TextInput(IWebDriver driver, By by) : base(driver, by)
+        public RichTextBox(IWebDriver driver, By by) : base(driver, by)
         {
         }
 
         public void SendKeys(string text)
         {
             this.Waiting(For.Visible);
-            this.OriginalElement.SendKeys(text);
-        }
+            var eleInput = this.OriginalElement.FindElement(By.XPath(".//iframe/html"));
 
-        public void Clear()
-        {
-            this.OriginalElement.Clear();
+            var action = new Actions(this._driver);
+            action.MoveToElement(eleInput)
+                .Click()
+                .SendKeys(text)
+                .Perform();
         }
 
         public string Text
