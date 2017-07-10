@@ -202,10 +202,16 @@ namespace JumpForward.Common.PageObject
 
         public DatabaseCampsDetailPage SetCampExtraItems(IList<PurchaseModel> purchases)
         {
+            if (purchases == null)
+            {
+                throw new Exception("[Page]: purchases can't be null!");
+            }
+
             foreach (var purchase in purchases)
             {
                 SetCampExtraItem(purchase);
             }
+            
             return this;
         }
         public DatabaseCampsDetailPage SetCampExtraItem(PurchaseModel purchase)

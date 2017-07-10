@@ -20,6 +20,7 @@ namespace JumpForward.Common
         public JumpForwardTestBase(SingleBrowserFixture fixture)
         {
             driverManager = fixture.DriverManager;
+            base.Initialization();
         }
 
         public override void InitializationDataKeeper()

@@ -56,7 +56,6 @@ namespace Craftsman.Core
             throw new NotImplementedException();
         }
 
-        
         public void Waiting(For type, TimeSpan timeout)
         {
             switch (type)
@@ -69,6 +68,9 @@ namespace Craftsman.Core
                     break;
                 case For.Clickable:
                     WaitSelector.WaitingFor_ElementToBeClickable(this._driver, this._by, timeout);
+                    break;
+                case For.Invisibility:
+                    WaitSelector.WaitingFor_InvisibilityOfElementLocated(this._driver, this._by, timeout);
                     break;
                 default:
                     throw new NotImplementedException();

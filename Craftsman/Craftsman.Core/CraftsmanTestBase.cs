@@ -10,14 +10,14 @@ namespace Craftsman.Core
 {
     public abstract class CraftsmanTestBase
     {
-        public CraftsmanTestBase()
+        protected void Initialization()
         {
             InitializationRouteMapper();
             InitializationServiceInvoker();
             InitializationDataKeeper();
             InitializationTestContext();
         }
-        
+
         public abstract void InitializationRouteMapper();
         public abstract void InitializationServiceInvoker();
         public abstract void InitializationDataKeeper();

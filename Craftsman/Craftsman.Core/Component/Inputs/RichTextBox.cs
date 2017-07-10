@@ -17,7 +17,8 @@ namespace Craftsman.Core.Component
         public void SendKeys(string text)
         {
             this.Waiting(For.Visible);
-            var eleInput = this.OriginalElement.FindElement(By.XPath(".//iframe/html"));
+            var eleInput = this.OriginalElement.FindElement(By.Id("cke_1_contents"));
+            
 
             var action = new Actions(this._driver);
             action.MoveToElement(eleInput)

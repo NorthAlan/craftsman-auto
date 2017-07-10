@@ -61,12 +61,13 @@ namespace JumpForward.TestCase
 
             /*You can custom this 'Workflow'*/
             databaseCampsPage.ClickAddCampButton()
-                .SetCampBaseInformation(camp)
-                .SetCampRegistrationItems(camp.CampItems)
-                .SetCampExtraItems(camp.Purchases)
-                .SetDefaultQuestions(camp)
-                .SetCustomQuestions(camp)
-                .SetWaiverInformation(camp)
+                //.SetCampBaseInformation(camp)
+                //.SetCampRegistrationItems(camp.CampItems)
+                //.SetCampExtraItems(camp.Purchases)
+                //.SetDefaultQuestions(camp)
+                //.SetCustomQuestions(camp)
+                //.SetWaiverInformation(camp)
+                //.SetAgreementAndDescription("agreement", "description")
                 .ClickSaveButton();
 
             Assert.True(databaseCampsPage.IsExistCamp("camp name"));

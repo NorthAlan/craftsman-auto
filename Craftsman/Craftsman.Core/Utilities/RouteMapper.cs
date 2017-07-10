@@ -17,6 +17,7 @@ namespace Craftsman.Core.Utilities
         public RouteMapper(IWebDriver driver)
         {
             this._driver = driver;
+            this._dicMap = new Dictionary<string, string>(100);
         }
 
         /// <summary>

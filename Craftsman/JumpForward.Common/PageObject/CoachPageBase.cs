@@ -30,7 +30,7 @@ namespace JumpForward.Common.PageObject
 
         protected void ClosePopWindow(IWebDriver driver)
         {
-            var waitTime = TimeSpan.FromSeconds(5);
+            var waitTime = TimeSpan.FromSeconds(3);
             var waitHard = TimeSpan.FromSeconds(1);
 
             // New Updated Calendar Feature!

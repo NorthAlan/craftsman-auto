@@ -11,6 +11,7 @@ namespace Craftsman.Core
         Exist,
         Visible,
         Clickable,
+        Invisibility,
 
         NotExist,
         NotVisible,
