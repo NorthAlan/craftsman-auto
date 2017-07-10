@@ -18,15 +18,15 @@ namespace JumpForward.Common.PageObject
         {
             WaitSelector.WaitingFor_ElementExists(this.Driver, By.Id("ContentPlaceHolder1_txtUsername"));
 
-            txtUserName = new TextInput(driver, By.Id("ContentPlaceHolder1_txtUsername"));
-            txtPassword = new TextInput(driver, By.Id("ContentPlaceHolder1_txtPassword"));
+            txtUserName = new TextBox(driver, By.Id("ContentPlaceHolder1_txtUsername"));
+            txtPassword = new TextBox(driver, By.Id("ContentPlaceHolder1_txtPassword"));
             btnSignIn = new Button(driver, By.XPath(".//input[@value='Sign In']"));
             txaLoadIcon = new TextArea(driver, By.Id("grid-loader-holder"));
         }
         #region Page elements     
         
-        protected TextInput txtUserName;
-        protected TextInput txtPassword;
+        protected TextBox txtUserName;
+        protected TextBox txtPassword;
         protected Button btnSignIn;
         /// <summary>
         /// move to base

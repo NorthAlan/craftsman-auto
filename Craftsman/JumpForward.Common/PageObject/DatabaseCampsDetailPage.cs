@@ -25,32 +25,32 @@ namespace JumpForward.Common.PageObject
         #region Internal component
 
         #region Base information
-        protected TextInput txtCampName;
-        protected TextInput txtCampLocation;
-        protected TextInput txtMapLocation;
+        protected TextBox txtCampName;
+        protected TextBox txtCampLocation;
+        protected TextBox txtMapLocation;
         protected JumpForwardSelect ddlTimeZone;
-        protected TextInput txtCampStartDate;
-        protected TextInput txtCampEndDate;
-        protected TextInput txtRegistrationStartDate;
-        protected TextInput txtRegistrationEndDate;
-        protected TextInput txtConfirmationEmailText;
+        protected TextBox txtCampStartDate;
+        protected TextBox txtCampEndDate;
+        protected TextBox txtRegistrationStartDate;
+        protected TextBox txtRegistrationEndDate;
+        protected TextBox txtConfirmationEmailText;
         #endregion Base information
 
         #region Registration items
         protected Button btnAddCampItem;
         protected TextArea txaAddCampPopupTitle;
-        protected TextInput txtCampItemPrice;
-        protected TextInput txtCampItemDescription;
-        protected TextInput txtCampItemQuantity;
+        protected TextBox txtCampItemPrice;
+        protected TextBox txtCampItemDescription;
+        protected TextBox txtCampItemQuantity;
         protected CheckBox ckbCampItemUnlimited;
         protected Button btnCampItemDone;
         private Button btnAddExtrasItem;
         private TextArea txaAddExtrasPopupTitle;
-        private TextInput txtCampExtraPrice;
-        private TextInput txtCampExtraDescription;
-        private TextInput txtCampExtraQuantity;
+        private TextBox txtCampExtraPrice;
+        private TextBox txtCampExtraDescription;
+        private TextBox txtCampExtraQuantity;
         private CheckBox ckbCampExtraUnlimited;
-        private TextInput txtCampExtraExpiration;
+        private TextBox txtCampExtraExpiration;
         private Button btnCampExtraDone;
         #endregion Registration items
 
@@ -62,23 +62,23 @@ namespace JumpForward.Common.PageObject
         protected Button btnAddCustomQuestionDone;
         protected CheckBox ckbCustomQuestionTextBox;
         protected CheckBox ckbCustomQuestionDropDown;
-        protected TextInput txtCustomQuestionText;
-        protected TextInput txtCustomQuestionOptions;
+        protected TextBox txtCustomQuestionText;
+        protected TextBox txtCustomQuestionOptions;
         #endregion Custom Question
 
         #region Waiver
-        protected TextInput txtCampWaiver;
-        protected TextInput txtCampRefundPolicy;
+        protected TextBox txtCampWaiver;
+        protected TextBox txtCampRefundPolicy;
         protected Button btnAddWaiver;
         protected TextArea txaAddWaiverPopupTitle;
-        protected TextInput txtWaiverHeader;
-        protected TextInput txtWaiverText;
+        protected TextBox txtWaiverHeader;
+        protected TextBox txtWaiverText;
         protected Button btnAddWaiverAnother;
         protected Button btnAddWaiverDone;
         #endregion Waiver
 
         #region Agreement & Description 
-        protected TextInput txtCampTermsText;
+        protected TextBox txtCampTermsText;
         protected RichTextBox txtCampDescription;
         #endregion Agreement & Description 
 
@@ -90,23 +90,23 @@ namespace JumpForward.Common.PageObject
         {
             //Init element.
             #region Base information
-            txtCampName = new TextInput(driver, By.Id("CampName"));
-            txtCampLocation = new TextInput(driver, By.Id("CampLocation"));
-            txtMapLocation = new TextInput(driver, By.Id("MapLocation"));
+            txtCampName = new TextBox(driver, By.Id("CampName"));
+            txtCampLocation = new TextBox(driver, By.Id("CampLocation"));
+            txtMapLocation = new TextBox(driver, By.Id("MapLocation"));
             ddlTimeZone = new JumpForwardSelect(driver, By.XPath(".//span[contains(@class,'ddlTimeZones') and @aria-owns='TimeZoneId_listbox']"));
-            txtCampStartDate = new TextInput(driver, By.Id("CampStartDate"));
-            txtCampEndDate = new TextInput(driver, By.Id("CampEndDate"));
-            txtRegistrationStartDate = new TextInput(driver, By.Id("RegistrationStartDate"));
-            txtRegistrationEndDate = new TextInput(driver, By.Id("RegistrationEndDate"));
-            txtConfirmationEmailText = new TextInput(driver, By.Id("ConfirmationEmailText"));
+            txtCampStartDate = new TextBox(driver, By.Id("CampStartDate"));
+            txtCampEndDate = new TextBox(driver, By.Id("CampEndDate"));
+            txtRegistrationStartDate = new TextBox(driver, By.Id("RegistrationStartDate"));
+            txtRegistrationEndDate = new TextBox(driver, By.Id("RegistrationEndDate"));
+            txtConfirmationEmailText = new TextBox(driver, By.Id("ConfirmationEmailText"));
             #endregion Base information 
 
             #region Registration items
             btnAddCampItem = new Button(driver, By.Id("btnAddCampItem"));
             txaAddCampPopupTitle = new TextArea(driver, By.XPath(".//*[@id='camp-items-container']/h3"));
-            txtCampItemPrice = new TextInput(driver, By.Id("camp-item-price"));
-            txtCampItemDescription = new TextInput(driver, By.Id("camp-item-description"));
-            txtCampItemQuantity = new TextInput(driver, By.Id("camp-item-quantity"));
+            txtCampItemPrice = new TextBox(driver, By.Id("camp-item-price"));
+            txtCampItemDescription = new TextBox(driver, By.Id("camp-item-description"));
+            txtCampItemQuantity = new TextBox(driver, By.Id("camp-item-quantity"));
             ckbCampItemUnlimited = new CheckBox(driver, By.Id("camp-item-unlimited"));
             btnCampItemDone = new Button(driver, By.Id("itemDone"));
             #endregion Registration items
@@ -114,11 +114,11 @@ namespace JumpForward.Common.PageObject
             #region Extras items
             btnAddExtrasItem = new Button(driver, By.Id("btnAddCampExtra"));
             txaAddExtrasPopupTitle = new TextArea(driver, By.XPath(".//*[@id='camp-extras-container']/h3"));
-            txtCampExtraPrice = new TextInput(driver, By.Id("camp-extra-price"));
-            txtCampExtraDescription = new TextInput(driver, By.Id("camp-extra-description"));
-            txtCampExtraQuantity = new TextInput(driver, By.Id("camp-extra-quantity"));
+            txtCampExtraPrice = new TextBox(driver, By.Id("camp-extra-price"));
+            txtCampExtraDescription = new TextBox(driver, By.Id("camp-extra-description"));
+            txtCampExtraQuantity = new TextBox(driver, By.Id("camp-extra-quantity"));
             ckbCampExtraUnlimited = new CheckBox(driver, By.Id("camp-extra-unlimited"));
-            txtCampExtraExpiration = new TextInput(driver, By.Id("camp-extra-expiration"));
+            txtCampExtraExpiration = new TextBox(driver, By.Id("camp-extra-expiration"));
             btnCampExtraDone = new Button(driver, By.Id("extraDone"));
             #endregion Extras items
 
@@ -128,19 +128,19 @@ namespace JumpForward.Common.PageObject
             btnAddCustomQuestion = new Button(driver, By.XPath(".//*[@id='addcampbottom']//button[text()='Add Question']"));
             ckbCustomQuestionTextBox = new CheckBox(driver, By.XPath(".//*[@id='camp-questions-container']//label[starts-with(text(),'Question Type')]/following-sibling::label[text()='Text Box']"));
             ckbCustomQuestionDropDown = new CheckBox(driver, By.XPath(".//*[@id='camp-questions-container']//label[starts-with(text(),'Question Type')]/following-sibling::label[text()='Drop Down']"));
-            txtCustomQuestionText = new TextInput(driver, By.Id("questionText"));
-            txtCustomQuestionOptions = new TextInput(driver, By.Id("questionOptions"));
+            txtCustomQuestionText = new TextBox(driver, By.Id("questionText"));
+            txtCustomQuestionOptions = new TextBox(driver, By.Id("questionOptions"));
             btnAddCustomQuestionAnother = new Button(driver, By.Id("questionAnother"));
             btnAddCustomQuestionDone = new Button(driver, By.Id("questionDone"));
             #endregion Custom Question
 
             #region Waiver
-            txtCampWaiver = new TextInput(driver, By.Id("CampWaiver"));
-            txtCampRefundPolicy = new TextInput(driver, By.Id("CampRefundPolicy"));
+            txtCampWaiver = new TextBox(driver, By.Id("CampWaiver"));
+            txtCampRefundPolicy = new TextBox(driver, By.Id("CampRefundPolicy"));
             btnAddWaiver = new Button(driver, By.Id("btnAddWaiver"));
             txaAddWaiverPopupTitle = new TextArea(driver, By.XPath(".//*[@id='camp-waiver-container']/h3"));
-            txtWaiverHeader = new TextInput(driver, By.Id("waiver-header"));
-            txtWaiverText = new TextInput(driver, By.Id("waiver-text"));
+            txtWaiverHeader = new TextBox(driver, By.Id("waiver-header"));
+            txtWaiverText = new TextBox(driver, By.Id("waiver-text"));
 
             btnAddWaiverAnother = new Button(driver, By.Id("waiverAnother"));
             btnAddWaiverDone = new Button(driver, By.Id("waiverDone"));
@@ -148,7 +148,7 @@ namespace JumpForward.Common.PageObject
             #endregion Waiver
 
             #region Agreement & Description 
-            txtCampTermsText = new TextInput(driver, By.Id("CampTermsText"));
+            txtCampTermsText = new TextBox(driver, By.Id("CampTermsText"));
             txtCampDescription = new RichTextBox(driver, By.Id("cke_CampDescription"));
             #endregion Agreement & Description 
 

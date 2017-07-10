@@ -79,7 +79,7 @@
     <Compile Include="Component\Inputs\PasswordInput.cs" />
     <Compile Include="Component\Inputs\RadioButton.cs" />
     <Compile Include="Component\Inputs\RadioButtonList.cs" />
-    <Compile Include="Component\Inputs\TextInput.cs" />
+    <Compile Include="Component\Inputs\TextBox.cs" />
     <Compile Include="Component\Inputs\TimeInput.cs" />
     <Compile Include="Component\Link.cs" />
     <Compile Include="Component\Lists\ControlList.cs" />
