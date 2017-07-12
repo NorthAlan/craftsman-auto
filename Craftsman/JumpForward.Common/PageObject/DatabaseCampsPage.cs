@@ -1,6 +1,5 @@
 ﻿using Craftsman.Core;
 using Craftsman.Core.Component;
-using Craftsman.Core.Tools;
 using JumpForward.Common.Model;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
@@ -48,7 +47,7 @@ namespace JumpForward.Common.PageObject
 
         public bool IsExistCamp(string campName)
         {
-            var campCell = tblCamps.FindCellByText(campName);
+            var campCell = tblCamps.FindCellByText($"{campName} - click to view");
             return !(campCell == null);
         }
 

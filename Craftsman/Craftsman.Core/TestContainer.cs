@@ -9,6 +9,8 @@ namespace Craftsman.Core
 {
     public class TestContainer
     {
-        public static RouteMapper Router { get; set; }
+        public static ModelBuilder ModelBuilder { get; set; }
+        public static ServiceInvoker ServiceInvoker { get; set; }
+        public static DataKeeper DataKeeper { get; set; }
     }
 }

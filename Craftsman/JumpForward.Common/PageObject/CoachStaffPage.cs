@@ -1,6 +1,5 @@
 ﻿using Craftsman.Core;
 using Craftsman.Core.Component;
-using Craftsman.Core.Tools;
 using JumpForward.Common.Model;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
@@ -14,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace JumpForward.Common.PageObject
 {
-    public class CoachStaffPage: CoachPageBase
+    public class CoachStaffPage : CoachPageBase
     {
         public CoachStaffPage(IWebDriver driver) : base(driver)
         {

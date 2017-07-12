@@ -1,7 +1,7 @@
 ﻿using Craftsman.Core;
 using Craftsman.Core.Component;
 using Craftsman.Core.Factory;
-using Craftsman.Core.Tools;
+using Craftsman.Core.Utilities;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 using System;

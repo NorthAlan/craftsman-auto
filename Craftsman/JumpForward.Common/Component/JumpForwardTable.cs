@@ -39,7 +39,7 @@ namespace Craftsman.Core.Component
             get
             {
                 var colunmIndex = 0;
-                var headerCells = this.OriginalElement.FindElements(By.XPath(".//*[@id='prospectGrid']/div[contains(@class,'k-grid-header')]//th"));
+                var headerCells = this.OriginalElement.FindElements(By.XPath("./div[contains(@class,'k-grid-header')]//th"));
                 for (var i = 0; i < headerCells.Count; i++)
                 {
                     if (columnName.Equals(headerCells[i].Text))
@@ -60,7 +60,7 @@ namespace Craftsman.Core.Component
         {
             get
             {
-                return new JumpForwardTableCell(this._driver, By.XPath($".//*[@id='prospectGrid']/div[contains(@class,'k-grid-content')]//tr[{rowIndex}]/td[{colunmIndex}]"));
+                return new JumpForwardTableCell(this._driver, By.XPath($".//div[contains(@class,'k-grid-content')]//tr[{rowIndex}]/td[{colunmIndex}]"));
             }
         }
 
@@ -68,7 +68,7 @@ namespace Craftsman.Core.Component
         {
             get
             {
-                var headerCells = this.OriginalElement.FindElements(By.XPath(".//*[@id='prospectGrid']/div[contains(@class,'k-grid-header')]//th"));
+                var headerCells = this.OriginalElement.FindElements(By.XPath("./div[contains(@class,'k-grid-header')]//th"));
                 return headerCells.Count;
             }
         }
@@ -77,7 +77,7 @@ namespace Craftsman.Core.Component
             get
             {
 
-                var rows = this.OriginalElement.FindElements(By.XPath(".//*[@id='prospectGrid']/div[contains(@class,'k-grid-content')]//tr"));
+                var rows = this.OriginalElement.FindElements(By.XPath("./div[contains(@class,'k-grid-content')]//tr"));
                 return rows.Count;
             }
         }
@@ -86,7 +86,7 @@ namespace Craftsman.Core.Component
         {
             for (var iRow = 1; iRow <= this.RowCount; iRow++)
             {
-                for (var iCol = 1; iRow <= this.ColunmCount; iCol++)
+                for (var iCol = 1; iCol <= this.ColunmCount; iCol++)
                 {
                     var cell = this[iCol, iRow];
                     if (cell.Text.Equals(text))

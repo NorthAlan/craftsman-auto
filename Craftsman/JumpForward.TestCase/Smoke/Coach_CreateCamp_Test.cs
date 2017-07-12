@@ -17,14 +17,11 @@ using Xunit;
 namespace JumpForward.TestCase
 {
     [Trait("Coach", "Camp")]
-    public class Coach_CreateCamp_Test: JumpForwardTestBase
+    public class Coach_CreateCamp_Test : JumpForwardTestBase
     {
-        public Coach_CreateCamp_Test(SingleBrowserFixture fixture) : base(fixture)
-        {
-        }
+        public Coach_CreateCamp_Test(TestContextFixture fixture) : base(fixture) { }
 
         private const string cst_DisplayName = "Create.Camp";
-
 
         [Fact(DisplayName = cst_DisplayName + ".Success")]
         public void Demo_Case_CreateCamp()
@@ -32,7 +29,7 @@ namespace JumpForward.TestCase
             //-->Data preparation.
             var camp = new CampModel()
             {
-                Name = "camp name 001",
+                Name = "camp name 003",
                 Location = "china XI'AN",
                 MapsLocation = string.Empty,
                 TimeZone = "Central standard time",
@@ -50,28 +47,37 @@ namespace JumpForward.TestCase
                 new CampItemModel { Price = 20.00m, Description = "CampItem 001" , Unlimited= true } ,
             };
 
-            //camp.Purchases = 
-            //camp.DefaultQuestions = 
-            //camp.CustomQuestions =
-            //camp.CustomWaivers
+            var expDate = DateTime.Now.AddYears(10);
+            camp.Purchases = new List<PurchaseModel>() {
+                new PurchaseModel(){Price = 16.99m, Description = "PurchaseItem 001", Unlimited = false , MaxQty =  10  },
+                new PurchaseModel(){Price = 16.99m, Description = "PurchaseItem 001", Unlimited = true },
+            };
+            camp.DefaultQuestions = new List<DefaultCamperQuestionModel>() {
+                new DefaultCamperQuestionModel(){ QuestionName="Address Line 1", Visibled = false, Required = false },
+                new DefaultCamperQuestionModel(){ QuestionName="Country", Visibled = true, Required = true }
+            };
 
-            var signInPage = TestContainer.Router.GoTo<CoachSignInPage>();
+            camp.CustomQuestions = new List<CustomQuestionModel>();
+            camp.CustomWaivers = new List<CustomWaiver>();
+
+            var signInPage = Router.GoTo<CoachSignInPage>();
             var dbProspectsPage = signInPage.SignIn("demicoach@activenetwork.com", "active");
             var databaseCampsPage = dbProspectsPage.NavMenu.Select<DatabaseCampsPage>("Databases", "Camps");
 
             /*You can custom this 'Workflow'*/
             databaseCampsPage.ClickAddCampButton()
-                //.SetCampBaseInformation(camp)
-                //.SetCampRegistrationItems(camp.CampItems)
-                //.SetCampExtraItems(camp.Purchases)
-                //.SetDefaultQuestions(camp)
-                //.SetCustomQuestions(camp)
-                //.SetWaiverInformation(camp)
-                //.SetAgreementAndDescription("agreement", "description")
+                .SetCampBaseInformation(camp)
+                .SetCampRegistrationItems(camp.CampItems)
+                .SetCampExtraItems(camp.Purchases)            
+                .SetDefaultQuestions(camp)
+                .SetCustomQuestions(camp)
+                .SetWaiverInformation(camp)
+                .SetAgreementAndDescription("agreement", "description")
                 .ClickSaveButton();
 
-            Assert.True(databaseCampsPage.IsExistCamp("camp name"));
+            Assert.True(databaseCampsPage.IsExistCamp(camp.Name));
         }
+
         public void Demo_Case()
         {
             /*
@@ -99,7 +105,7 @@ namespace JumpForward.TestCase
              */
 
             //-->Data preparation.
-            
+
             //var signInPage = RouteMapper.GoTo<CoachSignInPage>();
             //var dbProspectsPage = signInPage.SignIn("demicoach@activenetwork.com", "active");
             //var DatabaseCampsPage = dbProspectsPage.NavMenu.Select<DatabaseCampsPage>("Databases", "Camps");

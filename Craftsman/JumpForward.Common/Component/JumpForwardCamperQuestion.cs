@@ -1,6 +1,6 @@
 ﻿using Craftsman.Core;
 using Craftsman.Core.Component;
-using Craftsman.Core.Tools;
+using Craftsman.Core.Utilities;
 using JumpForward.Common.Model;
 using OpenQA.Selenium;
 using System;

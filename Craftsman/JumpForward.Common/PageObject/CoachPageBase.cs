@@ -1,5 +1,5 @@
 ﻿using Craftsman.Core.Factory;
-using Craftsman.Core.Tools;
+using Craftsman.Core.Utilities;
 using JumpForward.Common.Component;
 using OpenQA.Selenium;
 using System;
@@ -30,7 +30,7 @@ namespace JumpForward.Common.PageObject
 
         protected void ClosePopWindow(IWebDriver driver)
         {
-            var waitTime = TimeSpan.FromSeconds(3);
+            var waitTime = TimeSpan.FromSeconds(5);
             var waitHard = TimeSpan.FromSeconds(1);
 
             // New Updated Calendar Feature!

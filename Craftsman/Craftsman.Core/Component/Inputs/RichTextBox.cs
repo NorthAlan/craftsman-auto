@@ -18,7 +18,6 @@ namespace Craftsman.Core.Component
         {
             this.Waiting(For.Visible);
             var eleInput = this.OriginalElement.FindElement(By.Id("cke_1_contents"));
-            
 
             var action = new Actions(this._driver);
             action.MoveToElement(eleInput)

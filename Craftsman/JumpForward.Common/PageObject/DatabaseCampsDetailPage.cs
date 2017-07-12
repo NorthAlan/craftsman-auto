@@ -58,6 +58,7 @@ namespace JumpForward.Common.PageObject
 
         #region Custom Question
         protected Button btnAddCustomQuestion;
+        protected TextArea txaAddCustomQuestionPopupTitle;
         protected Button btnAddCustomQuestionAnother;
         protected Button btnAddCustomQuestionDone;
         protected CheckBox ckbCustomQuestionTextBox;
@@ -83,6 +84,7 @@ namespace JumpForward.Common.PageObject
         #endregion Agreement & Description 
 
         protected Button btnSave;
+        
 
         #endregion Internal component
 
@@ -126,6 +128,7 @@ namespace JumpForward.Common.PageObject
             
             #region Custom Question
             btnAddCustomQuestion = new Button(driver, By.XPath(".//*[@id='addcampbottom']//button[text()='Add Question']"));
+            txaAddCustomQuestionPopupTitle = new TextArea(driver, By.XPath(".//*[@id='camp-questions-container']/h3"));
             ckbCustomQuestionTextBox = new CheckBox(driver, By.XPath(".//*[@id='camp-questions-container']//label[starts-with(text(),'Question Type')]/following-sibling::label[text()='Text Box']"));
             ckbCustomQuestionDropDown = new CheckBox(driver, By.XPath(".//*[@id='camp-questions-container']//label[starts-with(text(),'Question Type')]/following-sibling::label[text()='Drop Down']"));
             txtCustomQuestionText = new TextBox(driver, By.Id("questionText"));
@@ -197,6 +200,7 @@ namespace JumpForward.Common.PageObject
 
             //TODO: set exp Date
 
+            txaAddCampPopupTitle.Waiting(For.Invisibility);
             return this;
         }
 
@@ -227,12 +231,13 @@ namespace JumpForward.Common.PageObject
                 txtCampExtraQuantity.SendKeys(purchase.MaxQty.ToString());
             }
 
-            if (purchase.ExpirationDate != null)
+            
+            if (purchase.ExpirationDate != null && purchase.ExpirationDate != DateTime.MinValue)
             {
                 txtCampExtraExpiration.SendKeys(purchase.ExpirationDate.ToString());
             }
             btnCampExtraDone.Click();
-
+            txaAddExtrasPopupTitle.Waiting(For.Invisibility);
             return this;
         }
 
@@ -256,32 +261,11 @@ namespace JumpForward.Common.PageObject
         }
 
         
-        public DatabaseCampsDetailPage SetCustomQuestions(IList<CustomQuestionModel> models)
+        public DatabaseCampsDetailPage SetCustomQuestions(IList<CustomQuestionModel> questions)
         {
-            btnAddCustomQuestion.Click();
-
-            for (var i = 0; i < models.Count; i++)
+            foreach (var question in questions)
             {
-                switch (models[i].Type)
-                {
-                    case CustomQuestionType.TextBox:
-                        ckbCustomQuestionTextBox.Click();
-                        break;
-                    case CustomQuestionType.DropDown:
-                        ckbCustomQuestionDropDown.Click();
-                        txtCustomQuestionOptions.SendKeys(models[i].DropDownOptions);
-                        break;
-                    default: break;
-                }
-                txtCustomQuestionText.SendKeys(models[i].Text);
-
-                if (i < models.Count - 1)
-                { btnAddCustomQuestionAnother.Click(); }
-                else
-                {
-                    btnAddCustomQuestionDone.Click();
-                }
-
+                SetCustomQuestion(question);
             }
             return this;
         }
@@ -291,11 +275,23 @@ namespace JumpForward.Common.PageObject
         }
         public DatabaseCampsDetailPage SetCustomQuestion(CustomQuestionModel model)
         {
-            return SetCustomQuestions(new List<CustomQuestionModel> { model });
-        }
+            btnAddCustomQuestion.Click();
+            txaAddCustomQuestionPopupTitle.Waiting(For.Exist);
+            switch (model.Type)
+            {
+                case CustomQuestionType.TextBox:
+                    ckbCustomQuestionTextBox.Click();
+                    break;
+                case CustomQuestionType.DropDown:
+                    ckbCustomQuestionDropDown.Click();
+                    txtCustomQuestionOptions.SendKeys(model.DropDownOptions);
+                    break;
+                default: break;
+            }
+            txtCustomQuestionText.SendKeys(model.Text);
 
-        public DatabaseCampsDetailPage SetCustomQuestion()
-        {
+            btnAddCustomQuestionDone.Click();
+            txaAddCustomQuestionPopupTitle.Waiting(For.Invisibility);
             return this;
         }
 
@@ -303,29 +299,32 @@ namespace JumpForward.Common.PageObject
         {
             return SetWaiverInformation(camp.CampWaiver, camp.RefundPolicy, camp.CustomWaivers);
         }
-
         public DatabaseCampsDetailPage SetWaiverInformation(string campWaiver,string refundPolicy, IList<CustomWaiver> customWaivers)
         {
             if (!string.IsNullOrEmpty(campWaiver)) { txtCampWaiver.SendKeys(campWaiver); }
             if (!string.IsNullOrEmpty(refundPolicy)) { txtCampRefundPolicy.SendKeys(refundPolicy); }
 
-            for(var i= 0; i< customWaivers.Count;i++)
+            if (customWaivers != null)
             {
-                btnAddWaiver.Click();
-                txaAddWaiverPopupTitle.Waiting(For.Exist);
-                txtWaiverHeader.SendKeys(customWaivers[i].Header);
-                txtWaiverText.SendKeys(customWaivers[i].Text);
-                if (i != customWaivers.Count - 1)
+                for (var i = 0; i < customWaivers.Count; i++)
                 {
-                    btnAddWaiverAnother.Click();
-                }
-                else
-                {
-                    btnAddWaiverDone.Click();
+                    btnAddWaiver.Click();
+                    txaAddWaiverPopupTitle.Waiting(For.Exist);
+                    txtWaiverHeader.SendKeys(customWaivers[i].Header);
+                    txtWaiverText.SendKeys(customWaivers[i].Text);
+                    if (i != customWaivers.Count - 1)
+                    {
+                        btnAddWaiverAnother.Click();
+                    }
+                    else
+                    {
+                        btnAddWaiverDone.Click();
+                    }
                 }
             }
             return this;
         }
+
         public DatabaseCampsDetailPage SetAgreementAndDescription(string agreement, string description)
         {
             //cke_CampDescription

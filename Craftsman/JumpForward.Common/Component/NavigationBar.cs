@@ -1,6 +1,6 @@
 ﻿using Craftsman.Core;
 using Craftsman.Core.Factory;
-using Craftsman.Core.Tools;
+using Craftsman.Core.Utilities;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
 using System;
@@ -54,7 +54,7 @@ namespace JumpForward.Common.Component
         public T Select<T>(string mainMenu, string subMenu) where T : PageObjectBase
         {
             Select(mainMenu, subMenu);
-            return TestContainer.Router.Build<T>();
+            return CraftsmanFactory.CreatePageObject<T>(this._driver);
         }
     }
 }

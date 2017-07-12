@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Craftsman.Core.Tools
+namespace Craftsman.Core.Utilities
 {
     public class WaitSelector
     {

@@ -13,28 +13,34 @@ using Xunit;
 
 namespace JumpForward.Common
 {
-    public class JumpForwardTestBase : CraftsmanTestBase, IClassFixture<SingleBrowserFixture>
+    public class JumpForwardTestBase : IClassFixture<TestContextFixture>
     {
-        protected IDriverManager driverManager { get; set; }
+        #region 
+        private IDriverManager _driverManager { get; set; }
+        private RouteMapper _routeMapper { get; set; }
 
-        public JumpForwardTestBase(SingleBrowserFixture fixture)
+        public IWebDriver Driver { get { return this._driverManager.Driver; } }
+        public RouteMapper Router { get { return this._routeMapper; } }
+        #endregion
+
+
+        public JumpForwardTestBase(TestContextFixture context)
         {
-            driverManager = fixture.DriverManager;
-            base.Initialization();
+            this._driverManager = context.DriverManager;
+            this._routeMapper = context.RouteMapper;
+
+            InitializationRouteMapper();
         }
 
-        public override void InitializationDataKeeper()
+        public void InitializationDataKeeper()
         {
             //throw new NotImplementedException();
         }
 
-        public override void InitializationRouteMapper()
+        public void InitializationRouteMapper()
         {
-            if (TestContainer.Router != null) { return; }
-
             var strAppNameCoach = "AppAlias.Coach";
             var strAppNameElevation = "AppAlias.Elevation";
-            var routeMapper = new RouteMapper(driverManager.Driver);
 
             //TODO: load for config @.Set up baseUrl 
 
@@ -46,22 +52,22 @@ namespace JumpForward.Common
              *      </environment>
              * </environments>
              */
-            routeMapper.SetUpBaseUrl(strAppNameCoach, "https://college-china.jumpforward.com");
-            routeMapper.SetUpBaseUrl(strAppNameElevation, "http://elevation-test.jumpforward.com");
+            this._routeMapper.SetUpBaseUrl(strAppNameCoach, "https://college-china.jumpforward.com");
+            this._routeMapper.SetUpBaseUrl(strAppNameElevation, "http://elevation-test.jumpforward.com");
 
             //@.Set up page object
-            routeMapper.SetUpPageObject(typeof(CoachSignInPage), string.Empty, strAppNameCoach);
-            routeMapper.SetUpPageObject(typeof(DatabaseProspectsPage), "/coach/Prospects", strAppNameCoach);
+            this._routeMapper.SetUpPageObject(typeof(CoachSignInPage), string.Empty, strAppNameCoach);
+            this._routeMapper.SetUpPageObject(typeof(DatabaseProspectsPage), "/coach/Prospects", strAppNameCoach);
 
-            TestContainer.Router = routeMapper;
         }
 
-        public override void InitializationServiceInvoker()
+        public void InitializationServiceInvoker()
         {
             //throw new NotImplementedException();
+            //TestContainer.ServiceInvoker = ServiceInvoker;
         }
 
-        public override void InitializationTestContext()
+        public void InitializationTestContext()
         {
             //throw new NotImplementedException();
         }

@@ -56,7 +56,6 @@
     <Compile Include="Component\Clickable.cs" />
     <Compile Include="Component\Content\Currency.cs" />
     <Compile Include="Component\Content\Date.cs" />
-    <Compile Include="Component\Content\DateTime.cs" />
     <Compile Include="Component\Content\EnumContent.cs" />
     <Compile Include="Component\Content\H2.cs" />
     <Compile Include="Component\Content\H4.cs" />
@@ -90,23 +89,23 @@
     <Compile Include="Component\Select.cs" />
     <Compile Include="Component\Table.cs" />
     <Compile Include="Component\TextArea.cs" />
-    <Compile Include="DataKeeper.cs" />
     <Compile Include="Factory\CraftsmanFactory.cs" />
     <Compile Include="Factory\PageComponentBase.cs" />
     <Compile Include="Factory\PageObjectBase.cs" />
     <Compile Include="Fixture\SingleBrowserFixture.cs" />
+    <Compile Include="Fixture\TestContextFixture.cs" />
     <Compile Include="IComponent.cs" />
     <Compile Include="IPageObject.cs" />
     <Compile Include="Manager\IDriverManager.cs" />
     <Compile Include="Manager\WebDriverManager.cs" />
-    <Compile Include="ModelBuilder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ServiceInvoker.cs" />
     <Compile Include="CraftsmanTestBase.cs" />
     <Compile Include="TestContainer.cs" />
-    <Compile Include="Tools\RouteMapper.cs" />
-    <Compile Include="Tools\WaitSelector.cs" />
+    <Compile Include="Utilities\WaitSelector.cs" />
+    <Compile Include="Utilities\DataKeeper.cs" />
+    <Compile Include="Utilities\ModelBuilder.cs" />
     <Compile Include="Utilities\RouteMapper.cs" />
+    <Compile Include="Utilities\ServiceInvoker.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
