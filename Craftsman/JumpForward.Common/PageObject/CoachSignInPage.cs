@@ -1,5 +1,7 @@
-﻿using Craftsman.Core.Factory;
-using Craftsman.Core.Tools;
+﻿using Craftsman.Core;
+using Craftsman.Core.Component;
+using Craftsman.Core.Factory;
+using Craftsman.Core.Utilities;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 using System;
@@ -15,17 +17,21 @@ namespace JumpForward.Common.PageObject
         public CoachSignInPage(IWebDriver driver) : base(driver)
         {
             WaitSelector.WaitingFor_ElementExists(this.Driver, By.Id("ContentPlaceHolder1_txtUsername"));
+
+            txtUserName = new TextBox(driver, By.Id("ContentPlaceHolder1_txtUsername"));
+            txtPassword = new TextBox(driver, By.Id("ContentPlaceHolder1_txtPassword"));
+            btnSignIn = new Button(driver, By.XPath(".//input[@value='Sign In']"));
+            txaLoadIcon = new TextArea(driver, By.Id("grid-loader-holder"));
         }
-        #region Page elements
-        [FindsBy(How = How.Id, Using = "ContentPlaceHolder1_txtUsername")]
-        protected IWebElement txtUserName;
-
-        [FindsBy(How = How.Id, Using = "ContentPlaceHolder1_txtPassword")]
-        protected IWebElement txtPassword;
-
-        [FindsBy(How = How.XPath, Using = ".//input[@value='Sign In']")]
-        protected IWebElement btnSignIn;
-
+        #region Page elements     
+        
+        protected TextBox txtUserName;
+        protected TextBox txtPassword;
+        protected Button btnSignIn;
+        /// <summary>
+        /// move to base
+        /// </summary>
+        protected TextArea txaLoadIcon;
         #endregion Page elements
 
         #region Action for test case
@@ -43,8 +49,10 @@ namespace JumpForward.Common.PageObject
             this.txtPassword.SendKeys(password);
 
             this.btnSignIn.Click();
-            WaitSelector.WaitingFor_InvisibilityOfElementLocated(this.Driver, By.Id("grid-loader-holder"));
-            
+
+            txaLoadIcon.Waiting(For.Invisibility);
+            //WaitSelector.WaitingFor_InvisibilityOfElementLocated(this.Driver, By.Id("grid-loader-holder"));
+
             return new DatabaseProspectsPage(this.Driver);
         }
         #endregion

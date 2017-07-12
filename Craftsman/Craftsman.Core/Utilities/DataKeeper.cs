@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Craftsman.Core.Component
+namespace Craftsman.Core.Utilities
 {
-    public class TextInput
+    public class DataKeeper
     {
     }
 }

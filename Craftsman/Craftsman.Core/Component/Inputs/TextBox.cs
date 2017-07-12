@@ -7,16 +7,21 @@ using OpenQA.Selenium;
 
 namespace Craftsman.Core.Component
 {
-    public class Button : BaseComponent
+    public class TextBox : BaseComponent
     {
-        public Button(IWebDriver driver, By by) : base(driver, by)
+        public TextBox(IWebDriver driver, By by) : base(driver, by)
         {
         }
 
-        public void Click()
+        public void SendKeys(string text)
         {
-            this.Waiting(For.Clickable);
-            this.OriginalElement.Click();
+            this.Waiting(For.Visible);
+            this.OriginalElement.SendKeys(text);
+        }
+
+        public void Clear()
+        {
+            this.OriginalElement.Clear();
         }
 
         public string Text
