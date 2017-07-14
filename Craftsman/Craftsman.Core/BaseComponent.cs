@@ -1,4 +1,4 @@
-﻿using Craftsman.Core.Tools;
+﻿using Craftsman.Core.Utilities;
 using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
@@ -29,6 +29,18 @@ namespace Craftsman.Core
                 throw new Exception("Can not get WebElement!");
             }
         }
+
+        public List<IWebElement> OriginalElements
+        {
+            get
+            {
+                if (this._driver != null)
+                {
+                    return this._driver.FindElements(this._by).ToList();
+                }
+                throw new Exception("Can not get WebElement!");
+            }
+        }
         public bool IsClickable()
         {
             throw new NotImplementedException();
@@ -44,7 +56,6 @@ namespace Craftsman.Core
             throw new NotImplementedException();
         }
 
-        
         public void Waiting(For type, TimeSpan timeout)
         {
             switch (type)
@@ -57,6 +68,9 @@ namespace Craftsman.Core
                     break;
                 case For.Clickable:
                     WaitSelector.WaitingFor_ElementToBeClickable(this._driver, this._by, timeout);
+                    break;
+                case For.Invisibility:
+                    WaitSelector.WaitingFor_InvisibilityOfElementLocated(this._driver, this._by, timeout);
                     break;
                 default:
                     throw new NotImplementedException();

@@ -1,6 +1,5 @@
 ﻿using Craftsman.Core;
 using Craftsman.Core.Component;
-using Craftsman.Core.Tools;
 using JumpForward.Common.Model;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
@@ -14,19 +13,19 @@ using System.Threading.Tasks;
 
 namespace JumpForward.Common.PageObject
 {
-    public class CoachStaffPage: CoachPageBase
+    public class CoachStaffPage : CoachPageBase
     {
         public CoachStaffPage(IWebDriver driver) : base(driver)
         {
             //WaitSelector.WaitingFor_PageLoad
 
             //Init element.
-            txtFirstName = new TextInput(driver, By.Id("coach-user-first"));
-            txtLastName = new TextInput(driver, By.Id("coach-user-last"));
-            txtTitle = new TextInput(driver, By.Id("coach-user-title"));
-            txtEmailAddress = new TextInput(driver, By.Id("coach-user-email"));
-            txtPhoneNumber = new TextInput(driver, By.Id("coach-user-phone"));
-            txtComment = new TextInput(driver, By.Id("coach-user-comment"));
+            txtFirstName = new TextBox(driver, By.Id("coach-user-first"));
+            txtLastName = new TextBox(driver, By.Id("coach-user-last"));
+            txtTitle = new TextBox(driver, By.Id("coach-user-title"));
+            txtEmailAddress = new TextBox(driver, By.Id("coach-user-email"));
+            txtPhoneNumber = new TextBox(driver, By.Id("coach-user-phone"));
+            txtComment = new TextBox(driver, By.Id("coach-user-comment"));
 
             btnAddUser = new Button(driver, By.Id("roster-staff-add-user"));
             btnAssignSports = new Button(driver, By.XPath(".//button/span[normalize-space(text())='Assign Sports']"));
@@ -43,12 +42,12 @@ namespace JumpForward.Common.PageObject
         protected Button btnAddUser;
 
         #region add user popup
-        protected TextInput txtFirstName;
-        protected TextInput txtLastName;
-        protected TextInput txtTitle;
-        protected TextInput txtEmailAddress;
-        protected TextInput txtPhoneNumber;
-        protected TextInput txtComment;
+        protected TextBox txtFirstName;
+        protected TextBox txtLastName;
+        protected TextBox txtTitle;
+        protected TextBox txtEmailAddress;
+        protected TextBox txtPhoneNumber;
+        protected TextBox txtComment;
 
         protected Button btnAssignSports;
         protected Button btnPopupAddUser;
@@ -75,6 +74,7 @@ namespace JumpForward.Common.PageObject
 
             return this;
         }
+
 
         protected void InputBaseInformation(CoachUserModel model)
         {

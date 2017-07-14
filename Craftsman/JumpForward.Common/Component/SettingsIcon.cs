@@ -1,4 +1,4 @@
-﻿using Craftsman.Core.Tools;
+﻿using Craftsman.Core.Utilities;
 using JumpForward.Common.PageObject;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;

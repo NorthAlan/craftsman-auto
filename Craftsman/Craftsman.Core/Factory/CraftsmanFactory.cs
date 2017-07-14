@@ -31,9 +31,9 @@ namespace Craftsman.Core.Factory
                     driver = new InternetExplorerDriver(driverPath);
                     break;
                 case "*firefox":
-                    var options = new FirefoxOptions();
-                    
-                    driver = new FirefoxDriver();
+                    var service = FirefoxDriverService.CreateDefaultService(driverPath);
+                    service.FirefoxBinaryPath = @"C:\Program Files (x86)\Mozilla Firefox\firefox.exe";
+                    driver = new FirefoxDriver(service);
                     break;
                 case "*chrome":
                     driver = new ChromeDriver(driverPath);

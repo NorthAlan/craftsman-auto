@@ -1,5 +1,4 @@
-﻿using Craftsman.Core.Tools;
-using JumpForward.Common.Model;
+﻿using JumpForward.Common.Model;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 using System;

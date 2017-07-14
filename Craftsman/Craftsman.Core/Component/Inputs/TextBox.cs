@@ -7,14 +7,15 @@ using OpenQA.Selenium;
 
 namespace Craftsman.Core.Component
 {
-    public class TextInput : BaseComponent
+    public class TextBox : BaseComponent
     {
-        public TextInput(IWebDriver driver, By by) : base(driver, by)
+        public TextBox(IWebDriver driver, By by) : base(driver, by)
         {
         }
 
         public void SendKeys(string text)
         {
+            this.Waiting(For.Visible);
             this.OriginalElement.SendKeys(text);
         }
 

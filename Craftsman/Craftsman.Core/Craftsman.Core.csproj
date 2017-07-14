@@ -56,7 +56,6 @@
     <Compile Include="Component\Clickable.cs" />
     <Compile Include="Component\Content\Currency.cs" />
     <Compile Include="Component\Content\Date.cs" />
-    <Compile Include="Component\Content\DateTime.cs" />
     <Compile Include="Component\Content\EnumContent.cs" />
     <Compile Include="Component\Content\H2.cs" />
     <Compile Include="Component\Content\H4.cs" />
@@ -73,12 +72,13 @@
     <Compile Include="Component\Inputs\CheckBoxList.cs" />
     <Compile Include="Component\Inputs\DateInput.cs" />
     <Compile Include="Component\Inputs\HiddenInput.cs" />
+    <Compile Include="Component\Inputs\RichTextBox.cs" />
     <Compile Include="Component\MultiSelectionInput.cs" />
     <Compile Include="Component\Inputs\NumberInput.cs" />
     <Compile Include="Component\Inputs\PasswordInput.cs" />
     <Compile Include="Component\Inputs\RadioButton.cs" />
     <Compile Include="Component\Inputs\RadioButtonList.cs" />
-    <Compile Include="Component\Inputs\TextInput.cs" />
+    <Compile Include="Component\Inputs\TextBox.cs" />
     <Compile Include="Component\Inputs\TimeInput.cs" />
     <Compile Include="Component\Link.cs" />
     <Compile Include="Component\Lists\ControlList.cs" />
@@ -93,14 +93,19 @@
     <Compile Include="Factory\PageComponentBase.cs" />
     <Compile Include="Factory\PageObjectBase.cs" />
     <Compile Include="Fixture\SingleBrowserFixture.cs" />
+    <Compile Include="Fixture\TestContextFixture.cs" />
     <Compile Include="IComponent.cs" />
     <Compile Include="IPageObject.cs" />
     <Compile Include="Manager\IDriverManager.cs" />
     <Compile Include="Manager\WebDriverManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="CraftsmanTestBase.cs" />
     <Compile Include="TestContainer.cs" />
-    <Compile Include="Tools\RouteMapper.cs" />
-    <Compile Include="Tools\WaitSelector.cs" />
+    <Compile Include="Utilities\WaitSelector.cs" />
+    <Compile Include="Utilities\DataKeeper.cs" />
+    <Compile Include="Utilities\ModelBuilder.cs" />
+    <Compile Include="Utilities\RouteMapper.cs" />
+    <Compile Include="Utilities\ServiceInvoker.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Craftsman.Core.Factory
 {
-    public class PageObjectBase
+    public class PageObjectBase: IPageObject
     {
         public IWebDriver Driver { get; set; }
 
@@ -16,6 +16,11 @@ namespace Craftsman.Core.Factory
         {
             this.Driver = driver;
             PageFactory.InitElements(driver, this);
+        }
+
+        public bool VerifyPage()
+        {
+            throw new NotImplementedException();
         }
     }
 }
