@@ -6,11 +6,13 @@ using JumpForward.Common;
 using JumpForward.Common.Component;
 using JumpForward.Common.Model;
 using JumpForward.Common.PageObject;
+using Newtonsoft.Json;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using Xunit;
 
@@ -24,41 +26,14 @@ namespace JumpForward.TestCase
         private const string cst_DisplayName = "Create.Camp";
 
         [Fact(DisplayName = cst_DisplayName + ".Success")]
+        //[JsonData("file1.json","file2.json")]
+        //SQlData()
         public void Demo_Case_CreateCamp()
         {
             //-->Data preparation.
-            var camp = new CampModel()
-            {
-                Name = "camp name 003",
-                Location = "china XI'AN",
-                MapsLocation = string.Empty,
-                TimeZone = "Central standard time",
-                CampStart = DateTime.Parse("2018-01-01 1:00 PM"),
-                CampEnd = DateTime.Parse("2018-01-01 7:00 PM"),
-                RegistrationStart = DateTime.Parse("2017-12-01 1:00 PM"),
-                RegistrationEnd = DateTime.Parse("2017-12-01 7:00 PM"),
-                ConfirmationEmailText = "ConfirmationEmailText",
-                CampWaiver = "CampWaiver",
-                RefundPolicy = "RefundPolicy"
-            };
-
-            camp.CampItems = new List<CampItemModel>() {
-                new CampItemModel { Price = 10.00m, Description = "CampItem 001" , Unlimited= false, MaxQty = 10 } ,
-                new CampItemModel { Price = 20.00m, Description = "CampItem 001" , Unlimited= true } ,
-            };
-
-            var expDate = DateTime.Now.AddYears(10);
-            camp.Purchases = new List<PurchaseModel>() {
-                new PurchaseModel(){Price = 16.99m, Description = "PurchaseItem 001", Unlimited = false , MaxQty =  10  },
-                new PurchaseModel(){Price = 16.99m, Description = "PurchaseItem 001", Unlimited = true },
-            };
-            camp.DefaultQuestions = new List<DefaultCamperQuestionModel>() {
-                new DefaultCamperQuestionModel(){ QuestionName="Address Line 1", Visibled = false, Required = false },
-                new DefaultCamperQuestionModel(){ QuestionName="Country", Visibled = true, Required = true }
-            };
-
-            camp.CustomQuestions = new List<CustomQuestionModel>();
-            camp.CustomWaivers = new List<CustomWaiver>();
+            
+            var json = File.ReadAllText("Smoke/DemoCase/TestData.json");
+            var camp = JsonConvert.DeserializeObject<CampModel>(json);
 
             var signInPage = Router.GoTo<CoachSignInPage>();
             var dbProspectsPage = signInPage.SignIn("demicoach@activenetwork.com", "active");

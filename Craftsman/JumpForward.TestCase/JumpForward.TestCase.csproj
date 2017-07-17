@@ -39,6 +39,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Drawing" />
     <Reference Include="WebDriver, Version=3.4.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -73,7 +76,7 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
-    <Compile Include="Smoke\Coach_CreateCamp_Test.cs" />
+    <Compile Include="Smoke\DemoCase\Coach_CreateCamp_Test.cs" />
     <Compile Include="Smoke\Coach_SignIn_Test.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -82,6 +85,9 @@
       <Link>App.config</Link>
     </None>
     <None Include="packages.config" />
+    <None Include="Smoke\DemoCase\TestData.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Craftsman.Core\Craftsman.Core.csproj">
