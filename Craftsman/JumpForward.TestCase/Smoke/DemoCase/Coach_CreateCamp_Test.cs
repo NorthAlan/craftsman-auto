@@ -4,6 +4,7 @@ using Craftsman.Core.Fixture;
 using Craftsman.Core.Utilities;
 using JumpForward.Common;
 using JumpForward.Common.Component;
+using JumpForward.Common.Fixture;
 using JumpForward.Common.Model;
 using JumpForward.Common.PageObject;
 using Newtonsoft.Json;
@@ -21,7 +22,7 @@ namespace JumpForward.TestCase
     [Trait("Coach", "Camp")]
     public class Coach_CreateCamp_Test : JumpForwardTestBase
     {
-        public Coach_CreateCamp_Test(TestContextFixture fixture) : base(fixture) { }
+        public Coach_CreateCamp_Test(TestContextFixture context, JumpForwardServiceFixture service) : base(context, service) { }
 
         private const string cst_DisplayName = "Create.Camp";
 
@@ -53,6 +54,15 @@ namespace JumpForward.TestCase
             Assert.True(databaseCampsPage.IsExistCamp(camp.Name));
         }
 
+        [Fact(DisplayName = cst_DisplayName + ".APIsTests")]
+        public void Call_APIs()
+        {
+            //call APIs
+            //GET: coach/Prospects/GetNewProspects?skip=0&take=100&pageSize=100
+            var prospects = this.CoachService.GetProspects();
+            Assert.NotNull(prospects);
+        }
+
         public void Demo_Case()
         {
             /*
@@ -62,7 +72,8 @@ namespace JumpForward.TestCase
              *  ==> DataKeeper 数据持有
              *      @. DataKeeper.{ModuleName}.{SqlActionName}
              *  ==> ServiceInvoker 服务调用
-             *      @.ServiceInvoker.{ModuleName}.{ServiceActionName}
+             *      [idea]@.ServiceInvoker.{ModuleName}.{ServiceActionName}
+             *      [fact]@.{ModuleName}Service.{ServiceActionName}
              *  ==> RouteMapper 路由映射
              *      @.RouteMapper.GoTo<IPageObject>(string url)
              *      @.RouteMapper.Build<IPageObject>(IWebDriver driver)
