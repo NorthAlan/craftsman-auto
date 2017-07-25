@@ -1,0 +1,54 @@
+﻿{
+  //base information
+  "Name": "camp name 003",
+  "Location": "china XI'AN",
+  "MapsLocation": "string.Empty",
+  "TimeZone": "Central standard time",
+  "CampStart": "2018-01-01 1:00 PM",
+  "CampEnd": "2018-01-01 7:00 PM",
+  "RegistrationStart": "2017-12-01 1:00 PM",
+  "RegistrationEnd": "2017-12-01 7:00 PM",
+  "ConfirmationEmailText": "ConfirmationEmailText",
+  "CampWaiver": "CampWaiver",
+  "RefundPolicy": "RefundPolicy",
+  "CampItems": [
+    {
+      "Price": 10.00,
+      "Description": "CampItem 001",
+      "Unlimited": false,
+      "MaxQty": 10
+    },
+    {
+      "Price": 20.00,
+      "Description": "CampItem 001",
+      "Unlimited": true
+    }
+  ],
+  "Purchases": [
+    {
+      "Price": 16.99,
+      "Description": "PurchaseItem 001",
+      "Unlimited": false,
+      "MaxQty": 10
+    },
+    {
+      "Price": 16.99,
+      "Description": "PurchaseItem 001",
+      "Unlimited": true
+    }
+  ],
+  "DefaultQuestions": [
+    {
+      "QuestionName": "Address Line 1",
+      "Visibled": false,
+      "Required": false
+    },
+    {
+      "QuestionName": "Country",
+      "Visibled": true,
+      "Required": true
+    }
+  ],
+  "CustomQuestions": [],
+  "CustomWaivers": []
+}
