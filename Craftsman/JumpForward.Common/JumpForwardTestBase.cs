@@ -57,7 +57,7 @@ namespace JumpForward.Common
 
             //@.Set up page object
             this._routeMapper.SetUpPageObject(typeof(CoachSignInPage), string.Empty, strAppNameCoach);
-            this._routeMapper.SetUpPageObject(typeof(DatabaseProspectsPage), "/coach/Prospects", strAppNameCoach);
+            this._routeMapper.SetUpPageObject(typeof(DatabaseProspectDetailsPage), "/coach/Prospects", strAppNameCoach);
 
         }
 

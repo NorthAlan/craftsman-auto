@@ -40,7 +40,7 @@ namespace JumpForward.Common.PageObject
         /// </summary>
         /// <param name="userName">User name</param>
         /// <param name="password">Password</param>
-        public DatabaseProspectsPage SignIn(string userName, string password)
+        public DatabaseProspectDetailsPage SignIn(string userName, string password)
         {
             this.txtUserName.Clear();
             this.txtPassword.Clear();
@@ -53,7 +53,7 @@ namespace JumpForward.Common.PageObject
             txaLoadIcon.Waiting(For.Invisibility);
             //WaitSelector.WaitingFor_InvisibilityOfElementLocated(this.Driver, By.Id("grid-loader-holder"));
 
-            return new DatabaseProspectsPage(this.Driver);
+            return new DatabaseProspectDetailsPage(this.Driver);
         }
         #endregion
     }

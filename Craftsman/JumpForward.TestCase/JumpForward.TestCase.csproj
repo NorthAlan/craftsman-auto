@@ -73,7 +73,8 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
-    <Compile Include="DEMO Cases\Coach_AddProspect.cs" />
+    <Compile Include="DEMO Cases\Coach_AddProspect_Test.cs" />
+    <Compile Include="DEMO Cases\Coach_AddProspect_V1.cs" />
     <Compile Include="Smoke\Coach_CreateCamp_Test.cs" />
     <Compile Include="Smoke\Coach_SignIn_Test.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

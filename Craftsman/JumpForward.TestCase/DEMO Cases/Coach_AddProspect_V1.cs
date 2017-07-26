@@ -12,25 +12,25 @@ using OpenQA.Selenium.Support.UI;
 using OpenQA.Selenium.Support.PageObjects;
 using OpenQA.Selenium;
 using Craftsman.Core.Component;
-using Craftsman.Core.Tools;
+using Craftsman.Core.Utilities;
 
 namespace JumpForward.TestCase.DEMO_Cases
 {
-    public class Coach_AddProspect
+    public class Coach_AddProspect_V1
     {
-        [Fact(DisplayName ="Coach_AddProspect")]
-        public void AddProspect ()
+        [Fact(DisplayName = "Coach_AddProspect")]
+        public void AddProspect()
         {
             //create manager
             var manager = CraftsmanFactory.CreateDriverManager();
             // navigate to Sign In page
-            manager.NavigateTo(String.Empty);
+            //manager.NavigateTo(String.Empty);
 
             var signInPage = CraftsmanFactory.CreatePageObject<CoachSignInPage>(manager.Driver);
             var dbProspectsPage = signInPage.SignIn("demicoach@activenetwork.com", "active");
 
             // navigate to Add Prospect page
-            dbProspectsPage.NavigationTo("Databases", "Add Prospect");
+            dbProspectsPage.NavMenu.Select("Databases", "Add Prospect");
 
 
             // Type the required prospect details - First Name, Last Name and Grad Year
@@ -56,5 +56,7 @@ namespace JumpForward.TestCase.DEMO_Cases
 
             manager.Driver.Close();
         }
+
+
     }
 }

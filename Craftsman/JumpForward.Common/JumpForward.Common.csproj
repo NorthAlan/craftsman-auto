@@ -73,6 +73,7 @@
     <Compile Include="Model\CustomWaiver.cs" />
     <Compile Include="Model\DefaultCamperQuestionModel.cs" />
     <Compile Include="Model\GenderType.cs" />
+    <Compile Include="Model\ProspectModel.cs" />
     <Compile Include="Model\PurchaseModel.cs" />
     <Compile Include="PageObject\CoachAddNewsPage.cs" />
     <Compile Include="PageObject\CoachSettingsPage.cs" />
@@ -80,9 +81,10 @@
     <Compile Include="PageObject\CoachMyProfilePage.cs" />
     <Compile Include="PageObject\CoachPageBase.cs" />
     <Compile Include="PageObject\CoachSignInPage.cs" />
+    <Compile Include="PageObject\Database_AddProspectPage.cs" />
     <Compile Include="PageObject\DatabaseCampsDetailPage.cs" />
     <Compile Include="PageObject\DatabaseCampsPage.cs" />
-    <Compile Include="PageObject\DatabaseProspectsPage.cs" />
+    <Compile Include="PageObject\DatabaseProspectDetailsPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
