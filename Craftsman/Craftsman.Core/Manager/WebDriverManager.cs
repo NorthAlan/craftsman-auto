@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using OpenQA.Selenium;
-using Craftsman.Core.Tools;
+using Craftsman.Core.Utilities;
 
 namespace Craftsman.Core.Manager
 {
@@ -23,12 +23,6 @@ namespace Craftsman.Core.Manager
             {
                 return this._driver;
             }
-        }
-
-        public void NavigateTo(string url)
-        {
-            var linkUrl = RouteMapper.BuildPageUrl("AppAlias.Coach", url);
-            _driver.Url = linkUrl;
         }
 
         public void BuildDefaultSetting()

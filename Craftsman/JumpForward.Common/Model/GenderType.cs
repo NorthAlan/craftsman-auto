@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using OpenQA.Selenium;
 
-namespace Craftsman.Core.Component
+namespace JumpForward.Common.Model
 {
-    public class Text
+    public enum GenderType
     {
+        Male,
+        Female
     }
 }

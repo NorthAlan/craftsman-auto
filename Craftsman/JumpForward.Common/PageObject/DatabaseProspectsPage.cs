@@ -1,5 +1,4 @@
-﻿using Craftsman.Core.Tools;
-using OpenQA.Selenium;
+﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 using System;
 using System.Collections.Generic;
