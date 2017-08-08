@@ -1,5 +1,5 @@
 ﻿using Craftsman.Core.Factory;
-using Craftsman.Core.Tools;
+using Craftsman.Core.Utilities;
 using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
