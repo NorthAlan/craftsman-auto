@@ -14,7 +14,14 @@ namespace Craftsman.Core.Component
         {
         }
 
-        public string Text {
+        public JumpForwardTableCell(IWebDriver driver, int rowIndex, int colunmIndex) 
+            : base(driver, By.XPath($".//div[contains(@class,'k-grid-content')]//tr[{rowIndex}]/td[{colunmIndex}])"))
+        {
+            //$".//div[contains(@class,'k-grid-content')]//tr[{rowIndex}]/td[{colunmIndex}]
+        }
+
+        public string Text
+        {
             get
             {
                 return this.OriginalElement.Text;
@@ -33,7 +40,7 @@ namespace Craftsman.Core.Component
         {
             //header : .//*[@id='prospectGrid']/div[contains(@class,'k-grid-header')]//th
             //header row-index:$ .//*[@id='prospectGrid']/div[contains(@class,'k-grid-content')]//tr[{rowIndex}]/td[{colunm}]
-            
+
         }
 
         public JumpForwardTableCell this[string columnName, int rowIndex]

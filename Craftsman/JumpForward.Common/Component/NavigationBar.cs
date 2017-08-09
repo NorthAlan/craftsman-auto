@@ -16,12 +16,10 @@ namespace JumpForward.Common.Component
         protected const string CST_MAIN_MENU_TEMP = ".//*[@id='contentnavtop']/ul[contains(@class,'navMenu')]/*/a[text()='{0}']";
 
         protected IWebDriver _driver;
-        protected IWebElement _rootElement;
 
         public NavigationBar(IWebDriver driver, By rootPath)
         {
             _driver = driver;
-            _rootElement = driver.FindElement(rootPath);
         }
 
         /// <summary>

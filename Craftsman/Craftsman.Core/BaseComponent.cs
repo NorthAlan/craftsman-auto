@@ -43,17 +43,17 @@ namespace Craftsman.Core
         }
         public bool IsClickable()
         {
-            throw new NotImplementedException();
+            return (WaitSelector.WaitingFor_GetElementWhenToBeClickable(this._driver, this._by) != null);
         }
 
         public bool IsExist()
         {
-            throw new NotImplementedException();
+            return (WaitSelector.WaitingFor_GetElementsWhenExists(this._driver, this._by) != null);
         }
 
         public bool IsVisible()
         {
-            throw new NotImplementedException();
+            return (WaitSelector.WaitingFor_GetElementsWhenIsVisible(this._driver, this._by) != null);
         }
 
         public void Waiting(For type, TimeSpan timeout)

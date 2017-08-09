@@ -14,12 +14,14 @@ namespace JumpForward.Common.Fixture
     {
         public Lazy<CoachServiceClient> CoachService { get; protected set; }
 
+        public Lazy<ComplianceServiceClient> ComplianceService { get; protected set; }
 
         public JumpForwardServiceFixture()
         {
-            CoachService = new Lazy<CoachServiceClient>();
+            this.CoachService = new Lazy<CoachServiceClient>();
+            this.ComplianceService = new Lazy<ComplianceServiceClient>();
         }
-       
+
         public void Dispose() { }
     }
 }
