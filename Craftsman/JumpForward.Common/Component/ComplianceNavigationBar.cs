@@ -1,5 +1,7 @@
 ﻿using OpenQA.Selenium;
-using OpenQA.Selenium.Interactions; 
+using OpenQA.Selenium.Interactions;
+using Craftsman.Core.Factory;
+using Craftsman.Core.Utilities;
 
 namespace JumpForward.Common.Component
 {
@@ -22,7 +24,7 @@ namespace JumpForward.Common.Component
         /// </summary>
         /// <param name="mainMenu">mainMenu</param>
         /// <param name="subMenu">subMenu</param>
-        public void NavigationTo(string mainMenu, string subMenu, int sportId)
+        public void Select(string mainMenu, string subMenu, int sportId)
         {
             //ex: .//*[@id='contentnavtop']/ul[contains(@class,'navMenu')]/*/a[text()='Databases']/following-sibling::div[1]//a[text()='Prospects']
             var mainMenuPath = string.Format(CST_MAIN_MENU_TEMP, mainMenu);
@@ -43,6 +45,12 @@ namespace JumpForward.Common.Component
 
             eleSubMenu.Click();
         }
-         
+
+        public T Select<T>(string mainMenu, string subMenu, int sportId) where T : PageObjectBase
+        {
+            Select(mainMenu, subMenu, sportId);
+            return CraftsmanFactory.CreatePageObject<T>(this._driver);
+        }
+
     }
 }

@@ -37,7 +37,7 @@ namespace JumpForward.TestCase
             var camp = JsonConvert.DeserializeObject<CampModel>(json);
 
             var signInPage = Router.GoTo<CoachSignInPage>();
-            var dbProspectsPage = signInPage.SignIn("demicoach@activenetwork.com", "active");
+            var dbProspectsPage = signInPage.CoachSignIn("demicoach@activenetwork.com", "active");
             var databaseCampsPage = dbProspectsPage.NavMenu.Select<DatabaseCampsPage>("Databases", "Camps");
 
             /*You can custom this 'Workflow'*/

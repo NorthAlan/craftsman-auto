@@ -55,7 +55,7 @@ namespace JumpForward.TestCase
             };
 
             var signInPage = Router.GoTo<CoachSignInPage>();
-            var dbProspectsPage = signInPage.SignIn("demicoach@activenetwork.com", "active");
+            var dbProspectsPage = signInPage.CoachSignIn("demicoach@activenetwork.com", "active");
             dbProspectsPage.Settings.Select<CoachStaffPage>().AddNewUser(model);
             //var staffPage = dbProspectsPage.Settings.Select<CoachStaffPage>();
             //staffPage.AddNewUser(model);
