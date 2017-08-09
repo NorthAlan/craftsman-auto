@@ -83,6 +83,7 @@
     <Compile Include="Smoke\DemoCase\Coach_CreateCamp_Test.cs" />
     <Compile Include="Smoke\Coach_SignIn_Test.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestCase\TestSuiteA\Coach_DatabaseClubs_Test.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\JumpForward.Common\App.config">
@@ -90,6 +91,9 @@
     </None>
     <None Include="packages.config" />
     <None Include="Smoke\DemoCase\TestData.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\TestSuiteA\JF_0001\data01.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
@@ -103,6 +107,7 @@
       <Name>JumpForward.Common</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>

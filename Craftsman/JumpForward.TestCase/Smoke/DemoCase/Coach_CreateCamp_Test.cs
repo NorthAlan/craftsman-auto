@@ -63,6 +63,23 @@ namespace JumpForward.TestCase
             Assert.NotNull(prospects);
         }
 
+        [Fact(DisplayName = cst_DisplayName + ".APIs.CreateClub")]
+        public void CreateClub_For_APIs()
+        {
+            //call APIs
+            var model = new ClubModel()
+            {
+                Name = $"Club-{DateTime.Now.Ticks}",
+                SportId = 15,
+                Address = new AddressModel() { CountryId = 1, StateId = 1 }
+            };
+
+            this.CoachService.CreateClub(model);
+            //Assert.NotNull(prospects);
+        }
+
+        
+
         public void Demo_Case()
         {
             /*
