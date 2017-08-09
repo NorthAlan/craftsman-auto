@@ -20,6 +20,7 @@ namespace Craftsman.Core.Component
                 return this.OriginalElement.Text;
             }
         }
+
         public void Click()
         {
             this.Waiting(For.Clickable);
@@ -34,6 +35,7 @@ namespace Craftsman.Core.Component
             //header row-index:$ .//*[@id='prospectGrid']/div[contains(@class,'k-grid-content')]//tr[{rowIndex}]/td[{colunm}]
             
         }
+
         public JumpForwardTableCell this[string columnName, int rowIndex]
         {
             get
@@ -72,6 +74,7 @@ namespace Craftsman.Core.Component
                 return headerCells.Count;
             }
         }
+
         public int RowCount
         {
             get

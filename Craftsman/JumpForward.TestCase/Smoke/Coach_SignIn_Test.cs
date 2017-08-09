@@ -10,6 +10,11 @@ using System;
 using System.Linq;
 using Xunit;
 using Craftsman.Core.Fixture;
+using RestSharp;
+using System.Net;
+using System.Xml;
+using System.Text.RegularExpressions;
+using JumpForward.Common.Fixture;
 
 namespace JumpForward.TestCase
 {
@@ -18,7 +23,7 @@ namespace JumpForward.TestCase
     {
         private const string cst_DisplayName = "BaseCheck.SignIn";
 
-        public Coach_SignIn_Test(TestContextFixture context) : base(context) { }
+        public Coach_SignIn_Test(TestContextFixture context, JumpForwardServiceFixture service) : base(context, service) { }
 
         [Fact(DisplayName = cst_DisplayName + ".Success")]
         public void SignIn_Success()
@@ -51,10 +56,9 @@ namespace JumpForward.TestCase
 
             var signInPage = Router.GoTo<CoachSignInPage>();
             var dbProspectsPage = signInPage.SignIn("demicoach@activenetwork.com", "active");
+            dbProspectsPage.Settings.Select<CoachStaffPage>().AddNewUser(model);
             //var staffPage = dbProspectsPage.Settings.Select<CoachStaffPage>();
             //staffPage.AddNewUser(model);
-
-            dbProspectsPage.Settings.Select<CoachStaffPage>().AddNewUser(model);
 
         }
     }

@@ -1,4 +1,5 @@
-﻿using System;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,9 @@ namespace JumpForward.Common.Model
         /// <summary>
         /// get or set 'Prospect FirstName'
         /// </summary>
+        /// 
+        [JsonProperty(PropertyName = "_id")]
+        public int Id { get; set; }
         public string FirstName { get; set; }
         /// <summary>
         /// get or set 'Prospect LastName'
@@ -36,7 +40,15 @@ namespace JumpForward.Common.Model
 
         public string Tag { get; set; }
 
-        public string TagM{get; set;}
+        public string TagM { get; set; }
+
+        public int ProjectedYear { get; set; }
+
+        public int CommStatus { get; set; }
+
+        public int RecruitingCoach { get; set; }
+        public bool Selected { get; set; }
+
 
         #endregion Prospect Details
 

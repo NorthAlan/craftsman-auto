@@ -2,6 +2,7 @@
 using Craftsman.Core.Fixture;
 using Craftsman.Core.Manager;
 using Craftsman.Core.Utilities;
+using JumpForward.Common.Fixture;
 using JumpForward.Common.PageObject;
 using OpenQA.Selenium;
 using System;
@@ -10,24 +11,30 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xunit;
+using JumpForward.Common.ServiceCall;
 
 namespace JumpForward.Common
 {
-    public class JumpForwardTestBase : IClassFixture<TestContextFixture>
+    public class JumpForwardTestBase : IClassFixture<TestContextFixture>, IClassFixture<JumpForwardServiceFixture>
     {
+
         #region 
         private IDriverManager _driverManager { get; set; }
         private RouteMapper _routeMapper { get; set; }
+        private Lazy<CoachServiceClient> _coachService;
 
         public IWebDriver Driver { get { return this._driverManager.Driver; } }
         public RouteMapper Router { get { return this._routeMapper; } }
+        public CoachServiceClient CoachService { get { return this._coachService.Value; } }
         #endregion
 
 
-        public JumpForwardTestBase(TestContextFixture context)
+        public JumpForwardTestBase(TestContextFixture context, JumpForwardServiceFixture service)
         {
             this._driverManager = context.DriverManager;
             this._routeMapper = context.RouteMapper;
+            //init service
+            this._coachService = service.CoachService;
 
             InitializationRouteMapper();
         }
