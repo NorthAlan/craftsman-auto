@@ -10,14 +10,24 @@ namespace Craftsman.Core.Component
 
     public class JumpForwardTableCell : BaseComponent
     {
-        public JumpForwardTableCell(IWebDriver driver, By by) : base(driver, by)
+        protected string _rootXPath;
+
+        public int RowIndex { get; set; }
+        public int ColumnIndex { get; set; }
+
+        public JumpForwardTableCell(IWebDriver driver, By by, int rowIndex, int columnIndex) : base(driver, by)
         {
+            this.RowIndex = rowIndex;
+            this.ColumnIndex = columnIndex;
+            this._rootXPath = $".//div[contains(@class,'k-grid-content')]//tr[{rowIndex}]/td[{columnIndex}]";
         }
 
-        public JumpForwardTableCell(IWebDriver driver, int rowIndex, int colunmIndex) 
-            : base(driver, By.XPath($".//div[contains(@class,'k-grid-content')]//tr[{rowIndex}]/td[{colunmIndex}])"))
+        public JumpForwardTableCell(IWebDriver driver, int rowIndex, int columnIndex)
+            : base(driver, By.XPath($".//div[contains(@class,'k-grid-content')]//tr[{rowIndex}]/td[{columnIndex}]"))
         {
-            //$".//div[contains(@class,'k-grid-content')]//tr[{rowIndex}]/td[{colunmIndex}]
+            this.RowIndex = rowIndex;
+            this.ColumnIndex = columnIndex;
+            this._rootXPath = $".//div[contains(@class,'k-grid-content')]//tr[{rowIndex}]/td[{columnIndex}]";
         }
 
         public string Text
@@ -33,6 +43,19 @@ namespace Craftsman.Core.Component
             this.Waiting(For.Clickable);
             this.OriginalElement.Click();
         }
+
+        public T GetComponent<T>(string subXPath) where T : BaseComponent
+        {
+            var by = By.XPath($"{_rootXPath}//{subXPath}");
+
+            Type type = typeof(T);
+            var component = (T) Activator.CreateInstance(type, this._driver, by);
+            if (!component.IsExist())
+            {
+                throw new Exception($"[JumpForwardTableCell]: Can't find component for [{by.ToString()}]");
+            }
+            return component;
+        }
     }
     public class JumpForwardTable : BaseComponent
     {
@@ -40,36 +63,37 @@ namespace Craftsman.Core.Component
         {
             //header : .//*[@id='prospectGrid']/div[contains(@class,'k-grid-header')]//th
             //header row-index:$ .//*[@id='prospectGrid']/div[contains(@class,'k-grid-content')]//tr[{rowIndex}]/td[{colunm}]
-
         }
 
         public JumpForwardTableCell this[string columnName, int rowIndex]
         {
             get
             {
-                var colunmIndex = 0;
+                var columnIndex = 0;
                 var headerCells = this.OriginalElement.FindElements(By.XPath("./div[contains(@class,'k-grid-header')]//th"));
                 for (var i = 0; i < headerCells.Count; i++)
                 {
                     if (columnName.Equals(headerCells[i].Text))
                     {
-                        colunmIndex = i + 1;
+                        columnIndex = i + 1;
                         break;
                     }
                 }
-                if (colunmIndex == 0)
+                if (columnIndex == 0)
                 {
                     throw new Exception($"[JumpForwardTable]: can't find the colunm named '[{columnName}]'");
                 }
-                return this[colunmIndex, rowIndex];
+                return this[columnIndex, rowIndex];
             }
         }
 
-        public JumpForwardTableCell this[int colunmIndex, int rowIndex]
+        public JumpForwardTableCell this[int columnIndex, int rowIndex]
         {
             get
             {
-                return new JumpForwardTableCell(this._driver, By.XPath($".//div[contains(@class,'k-grid-content')]//tr[{rowIndex}]/td[{colunmIndex}]"));
+                var by = By.XPath($".//div[contains(@class,'k-grid-content')]//tr[{rowIndex}]/td[{columnIndex}]");
+                var cell = new JumpForwardTableCell(this._driver, by, rowIndex, columnIndex);
+                return cell;
             }
         }
 
@@ -106,6 +130,23 @@ namespace Craftsman.Core.Component
                 }
             }
             return null;
+        }
+
+        public List<JumpForwardTableCell> FindAllCellsByText(string text)
+        {
+            var cells = new List<JumpForwardTableCell>();
+            for (var iRow = 1; iRow <= this.RowCount; iRow++)
+            {
+                for (var iCol = 1; iCol <= this.ColunmCount; iCol++)
+                {
+                    var cell = this[iCol, iRow];
+                    if (cell.Text.Equals(text))
+                    {
+                        cells.Add(cell);
+                    }
+                }
+            }
+            return cells;
         }
     }
 }

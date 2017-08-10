@@ -17,6 +17,10 @@ namespace JumpForward.Common.PageObject
         protected Link lnkAddClub;
         protected JumpForwardTable tblClubs;
 
+        #region left pancel
+        protected Button btnMergeClubs;
+        #endregion left pancel
+
         public IComponent AddClubLink { get { return lnkAddClub; } }
 
 
@@ -25,6 +29,8 @@ namespace JumpForward.Common.PageObject
             //Init element.
             lnkAddClub = new Link(driver, By.XPath(".//i[contains(@class,'clubs-add-icon')]/parent::span/parent::a"));
             tblClubs = new JumpForwardTable(driver, By.Id("database-grid"));
+            btnMergeClubs = new Button(driver, By.XPath(".//button[contains(.,'Merge Clubs')]"));
+            
         }
 
         #region Action method 
@@ -51,11 +57,19 @@ namespace JumpForward.Common.PageObject
             }
             return hasClub;
         }
+
+        public DatabaseClubsPage SelectClubs(string name)
+        {
+            var cells = tblClubs.FindAllCellsByText(name);
+            foreach (var cell in cells)
+            {
+                var prevCell = tblClubs[cell.ColumnIndex - 1, cell.RowIndex];
+                var chkBox = prevCell.GetComponent<CheckBox>("input[@type='checkbox']");
+                chkBox.SetState(true);
+            }
+            
+            return this;
+        }
         #endregion
-
-
     }
-
-    
 }
-

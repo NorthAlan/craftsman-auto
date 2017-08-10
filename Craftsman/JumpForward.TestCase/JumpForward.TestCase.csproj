@@ -96,6 +96,9 @@
     <None Include="TestData\TestSuiteA\JF_0001\data01.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="TestData\TestSuiteA\JF_0002\Club.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Craftsman.Core\Craftsman.Core.csproj">
