@@ -34,6 +34,14 @@ namespace JumpForward.Common.PageObject
             var waitHard = TimeSpan.FromSeconds(1);
 
             // New Updated Calendar Feature!
+            if (WaitSelector.WaitingFor_ElementExists(driver, By.XPath("//span[contains(text(),'Thanks, but no thanks')]"), waitTime))
+            {
+                var btnThanks = WaitSelector.WaitingFor_GetElementWhenIsVisible(driver, By.XPath("//span[contains(text(),'Thanks, but no thanks')]"));
+
+                WaitSelector.HardWait(waitHard);
+                btnThanks.Click();
+                WaitSelector.HardWait(waitHard);
+            }
             if (WaitSelector.WaitingFor_ElementExists(driver, By.XPath("//span[contains(text(),'No thanks')]"), waitTime))
             {
                 var btnNoThanks = WaitSelector.WaitingFor_GetElementWhenIsVisible(driver, By.XPath("//span[contains(text(),'No thanks')]"));

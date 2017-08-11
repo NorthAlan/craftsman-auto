@@ -79,6 +79,107 @@ namespace JumpForward.Common.ServiceCall
             }
             return prospects;
         }
+
+        /// <summary>
+        /// Update Club information.
+        /// POST: coach/ClubDetail.aspx?initialaction=edit&clubid={clubid}
+        /// </summary>
+        /// <param name="model"></param>
+        public void CreateClub(ClubModel model)
+        {
+            var request = new RestRequest($"coach/ClubDetail.aspx?initialaction=create", Method.POST);
+            //Fill form.
+            request.AddParameter("ctl00$ddlSport", model.SportId);
+            //request.AddParameter("ctl00$cphMain$clubDetails$fvClub$hdnClubId", model.Id);
+            //request.AddParameter("ctl00$cphMain$clubDetails$fvClub$hdnSportId", model.SportId);
+
+            request.AddParameter("ctl00$cphMain$clubDetails$fvClub$txtName", model.Name);
+            request.AddParameter("ctl00$cphMain$clubDetails$fvClub$txtLeague", model.TeamName);
+            request.AddParameter("ctl00$cphMain$clubDetails$fvClub$txtLocation", model.Address.LocationName);
+            request.AddParameter("ctl00$cphMain$clubDetails$fvClub$txtAddress1", model.Address.AddressLine1);
+            request.AddParameter("ctl00$cphMain$clubDetails$fvClub$txtAddress2", model.Address.AddressLine2);
+            request.AddParameter("ctl00$cphMain$clubDetails$fvClub$txtAddress3", model.Address.AddressLine3);
+            request.AddParameter("ctl00$cphMain$clubDetails$fvClub$txtCity", model.Address.City);
+            request.AddParameter("ctl00$cphMain$clubDetails$fvClub$txtCounty", model.Address.County);
+            request.AddParameter("ctl00$cphMain$clubDetails$fvClub$ddlState", model.Address.StateId);
+            request.AddParameter("ctl00$cphMain$clubDetails$fvClub$ddlCountry", model.Address.CountryId);
+            request.AddParameter("ctl00$cphMain$clubDetails$fvClub$txtZip", model.Address.ZipCode);
+            request.AddParameter("ctl00$cphMain$clubDetails$fvClub$txtWebSite", model.ClubWebsite);
+            request.AddParameter("ctl00$cphMain$clubDetails$fvClub$TextBox9", model.MainPhoneNumber);
+            request.AddParameter("ctl00$cphMain$clubDetails$fvClub$txtSeasonRecord", model.SeasonRecord);
+            request.AddParameter("ctl00$cphMain$clubDetails$fvClub$txtRecentGameResults", model.RecentGameResults);
+            request.AddParameter("ctl00$cphMain$clubDetails$fvClub$TextBox7", model.HeadCoach.Title);
+            request.AddParameter("ctl00$cphMain$clubDetails$fvClub$txtFirstName", model.HeadCoach.FirstName);
+            request.AddParameter("ctl00$cphMain$clubDetails$fvClub$txtLastName", model.HeadCoach.LastName);
+            request.AddParameter("ctl00$cphMain$clubDetails$fvClub$TextBox8", model.HeadCoach.Suffix);
+            request.AddParameter("ctl00$cphMain$clubDetails$fvClub$txtPhone", model.HeadCoach.HomePhone);
+            request.AddParameter("ctl00$cphMain$clubDetails$fvClub$txtPhone2", model.HeadCoach.MobilePhone);
+            request.AddParameter("ctl00$cphMain$clubDetails$fvClub$TextBox4", model.HeadCoach.OfficePhone);
+            request.AddParameter("ctl00$cphMain$clubDetails$fvClub$TextBox2", model.HeadCoach.Email);
+            //request.AddParameter("ctl00_cphMain_clubAssistants_gvAssistants_ClientState", string.Empty);
+            request.AddParameter("ctl00$cphMain$clubProspects$grdRecruits$ctl00$ctl03$ctl01$PageSizeComboBox", "50");
+            request.AddParameter("ctl00_cphMain_clubProspects_grdRecruits_ctl00_ctl03_ctl01_PageSizeComboBox_ClientState", "{ \"logEntries\":[],\"value\":\"50\",\"text\":\"50\",\"enabled\":true}");
+            request.AddParameter("ctl00_cphMain_clubProspects_grdRecruits_ClientState", string.Empty);
+            request.AddParameter("__ASYNCPOST", true);
+            request.AddParameter("RadAJAXControlID", "ctl00_cphMain_rap1");
+            
+
+            var response = this._client.Post(request);
+            if (response.StatusCode != HttpStatusCode.OK)
+            {
+                throw new Exception("[CoachServiceClient]-[GetProspect] error!");
+            }
+        }
+
+
+        /// <summary>
+        /// Update Club information.
+        /// POST: coach/ClubDetail.aspx?initialaction=edit&clubid={clubid}
+        /// </summary>
+        /// <param name="model"></param>
+        public void UpdateClub(ClubModel model)
+        {
+            var request = new RestRequest($"coach/ClubDetail.aspx?initialaction=edit&clubid={model.Id}", Method.POST);
+
+            //Fill form.
+            request.AddParameter("ctl00$ddlSport", "15");
+            request.AddParameter("ctl00$cphMain$clubDetails$fvClub$hdnClubId", model.Id);
+            request.AddParameter("ctl00$cphMain$clubDetails$fvClub$hdnSportId", "15");
+
+            request.AddParameter("ctl00$cphMain$clubDetails$fvClub$txtName", string.Empty);
+            request.AddParameter("ctl00$cphMain$clubDetails$fvClub$txtLeague", model.TeamName);
+            request.AddParameter("ctl00$cphMain$clubDetails$fvClub$txtLocation", model.Address.LocationName);
+            request.AddParameter("ctl00$cphMain$clubDetails$fvClub$txtAddress1", model.Address.AddressLine1);
+            request.AddParameter("ctl00$cphMain$clubDetails$fvClub$txtAddress2", model.Address.AddressLine2);
+            request.AddParameter("ctl00$cphMain$clubDetails$fvClub$txtAddress3", model.Address.AddressLine3);
+            request.AddParameter("ctl00$cphMain$clubDetails$fvClub$txtCity", model.Address.City);
+            request.AddParameter("ctl00$cphMain$clubDetails$fvClub$txtCounty", model.Address.County);
+            request.AddParameter("ctl00$cphMain$clubDetails$fvClub$ddlState", model.Address.StateId);
+            request.AddParameter("ctl00$cphMain$clubDetails$fvClub$ddlCountry", model.Address.CountryId);
+            request.AddParameter("ctl00$cphMain$clubDetails$fvClub$txtZip", model.Address.ZipCode);
+            request.AddParameter("ctl00$cphMain$clubDetails$fvClub$txtWebSite", model.ClubWebsite);
+            request.AddParameter("ctl00$cphMain$clubDetails$fvClub$TextBox9", model.MainPhoneNumber);
+            request.AddParameter("ctl00$cphMain$clubDetails$fvClub$txtSeasonRecord", model.SeasonRecord);
+            request.AddParameter("ctl00$cphMain$clubDetails$fvClub$txtRecentGameResults", model.RecentGameResults);
+            request.AddParameter("ctl00$cphMain$clubDetails$fvClub$TextBox7", model.HeadCoach.Title);
+            request.AddParameter("ctl00$cphMain$clubDetails$fvClub$txtFirstName", model.HeadCoach.FirstName);
+            request.AddParameter("ctl00$cphMain$clubDetails$fvClub$txtLastName", model.HeadCoach.LastName);
+            request.AddParameter("ctl00$cphMain$clubDetails$fvClub$TextBox8", model.HeadCoach.Suffix);
+            request.AddParameter("ctl00$cphMain$clubDetails$fvClub$txtPhone", model.HeadCoach.HomePhone);
+            request.AddParameter("ctl00$cphMain$clubDetails$fvClub$txtPhone2", model.HeadCoach.MobilePhone);
+            request.AddParameter("ctl00$cphMain$clubDetails$fvClub$TextBox4", model.HeadCoach.OfficePhone);
+            request.AddParameter("ctl00$cphMain$clubDetails$fvClub$TextBox2", model.HeadCoach.Email);
+            request.AddParameter("ctl00_cphMain_clubAssistants_gvAssistants_ClientState", string.Empty);
+            request.AddParameter("ctl00$cphMain$clubProspects$grdRecruits$ctl00$ctl03$ctl01$PageSizeComboBox", string.Empty);
+            request.AddParameter("ctl00_cphMain_clubProspects_grdRecruits_ctl00_ctl03_ctl01_PageSizeComboBox_ClientState", string.Empty);
+            request.AddParameter("ctl00_cphMain_clubProspects_grdRecruits_ClientState", string.Empty);
+
+            var response = this._client.Post(request);
+            if (response.StatusCode != HttpStatusCode.OK)
+            {
+                throw new Exception("[CoachServiceClient]-[GetProspect] error!");
+            }
+        }
         #endregion
     }
 }

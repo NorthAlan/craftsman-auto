@@ -17,7 +17,7 @@ namespace Craftsman.Core.Component
         {
             get
             {
-                return this.Text;
+                return this.OriginalElement.Text;
             }
         }
     }

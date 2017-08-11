@@ -1,0 +1,30 @@
+﻿{
+  "Id": 0,
+  "Name": "JF0001-Club",
+  "TeamName": "JF0001-TeamName",
+  "Address": {
+    "LocationName": "",
+    "AddressLine1": "AddressLine - 1",
+    "AddressLine2": "AddressLine - 2",
+    "AddressLine3": "AddressLine - 3",
+    "City": "",
+    "County": "",
+    "Country": "Anguilla",
+    "State": "Anguilla",
+    "ZipCode": ""
+  },
+  "ClubWebsite": "https://my-club.com",
+  "MainPhoneNumber": "18600000000",
+  "SeasonRecord": "",
+  "RecentGameResults": "Text for RecentGameResults",
+  "HeadCoach": {
+    "Title": "JF-0001 Coach Title",
+    "FirstName": "Coach",
+    "LastName": "JF-0001",
+    "Suffix": "",
+    "HomePhone": "",
+    "MobilePhone": "",
+    "OfficePhone": "",
+    "Email": "Coach.JF0001@test.com"
+  }
+}
