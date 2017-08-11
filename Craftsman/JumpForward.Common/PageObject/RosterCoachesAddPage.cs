@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using JumpForward.Common.Model;
 
 namespace JumpForward.Common.PageObject
 {
@@ -73,24 +74,31 @@ namespace JumpForward.Common.PageObject
             btnBack = new Button(driver, By.Id("cphMain_btnBack"));
         }
 
-        public RosterCoachesAddPage SetCoachInfo(string firstName, string lastName, string emial)
+        public RosterCoachesAddPage SetCoachInfo(CoachUserModel coachUser, string emial)
         {
-            this.txtFirstName.SendKeys(firstName);
-            this.txtMiddleName.SendKeys("A");
-            this.txtLastName.SendKeys(lastName);
-            this.radMale.Click();
-            this.txtTitle.SendKeys("Automation Test");
+            this.txtFirstName.SendKeys(coachUser.FirstName);
+            this.txtMiddleName.SendKeys(coachUser.MiddleName);
+            this.txtLastName.SendKeys(coachUser.LastName);
+            if (coachUser.Gender == GenderType.Male)
+                this.radMale.Click();
+            else
+                this.radFemale.Click();            
+            this.txtTitle.SendKeys(coachUser.Title);
             this.txtEmail.SendKeys(emial);
-            this.txtAddress1.SendKeys(firstName + " Home");
-            this.txtCity.SendKeys("Test City");
-            this.txtZip.SendKeys("56894");
-            this.radAllowSignOnYes.Click();
-            this.ddlState.SelectByText("Illinois");
-            this.ddlStatus.SelectByText("Active");
-            this.ddlCoachSiteAccess.SelectByText("Edit");
-            this.ddlRequestNewCoach.SelectByText("Full Adding Authority");
-            this.ddlPlayingSeasonSetup.SelectByText("Setup Season");
-            this.ddlCoachCategory.SelectByText("Head");
+            this.txtAddress1.SendKeys(coachUser.Address1);
+            this.txtAddress2.SendKeys(coachUser.Address2);
+            this.txtCity.SendKeys(coachUser.City);
+            this.txtZip.SendKeys(coachUser.Zip.ToString());
+            if (coachUser.AllowSignOn)
+                this.radAllowSignOnYes.Click();
+            else
+                this.radAllowSignOnNo.Click();
+            this.ddlState.SelectByText(coachUser.State);
+            this.ddlStatus.SelectByText(coachUser.Status);
+            this.ddlCoachSiteAccess.SelectByText(coachUser.StaffDatabaseTab);
+            this.ddlRequestNewCoach.SelectByText(coachUser.RequestNewCoachUsers);
+            //this.ddlPlayingSeasonSetup.SelectByText(coachUser.PlaySeason);
+            this.ddlCoachCategory.SelectByText(coachUser.CoachCategory);
             return this;
         }
 

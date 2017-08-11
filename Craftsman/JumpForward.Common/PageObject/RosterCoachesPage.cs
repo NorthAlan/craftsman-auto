@@ -1,6 +1,7 @@
 ﻿using Craftsman.Core.Component;
 using Craftsman.Core.Factory;
 using Craftsman.Core.Utilities;
+using JumpForward.Common.Model;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 using System;
@@ -39,12 +40,12 @@ namespace JumpForward.Common.PageObject
         /// AddNewCoach
         /// </summary>
         /// <returns>RosterCoachesAddPage</returns>
-        public RosterPage AddNewCoach(string firstName, string lastName, string emial)
+        public RosterPage AddNewCoach(CoachUserModel coachUser, string emial)
         {
             this.btnAddCoach.Click();
             this.btnAddNewCoach.Click();
             RosterCoachesAddPage rosterCoachesAddPage = new RosterCoachesAddPage(this.Driver);
-            RosterPage rosterPage = rosterCoachesAddPage.SetCoachInfo(firstName, lastName, emial)
+            RosterPage rosterPage = rosterCoachesAddPage.SetCoachInfo(coachUser, emial)
                 .Save();
             
             return rosterPage;

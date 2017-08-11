@@ -1,0 +1,26 @@
+﻿{
+  //base information
+  "FirstName": "Clark",
+  "MiddleName": "string.Empty",
+  "LastName": "Peng",
+  "Gender": "Male",
+  "Title": "Automation Test",
+  "EmailAddress": "string.Empty",
+  "Address1": "Home",
+  "Address2": "Office",
+  "City": "Test City",
+  "Country": "United States",
+  "State": "Alaska",
+  "Zip": 12345,
+  "Phone": "string.Empty",
+  "Status": "Active",
+  "AllowSignOn": true, 
+  "StaffDatabaseTab": "Edit",
+  "RequestNewCoachUsers": "Full Adding Authority",
+  "PlaySeason": 4,
+  "CARAWeek": "Edit",
+  "Calendar": "Edit",
+  "TMP": "Edit",
+  "Comment": "Automation test created",
+  "CoachCategory": "Head"
+}

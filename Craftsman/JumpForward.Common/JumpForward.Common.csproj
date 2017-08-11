@@ -74,13 +74,14 @@
     <Compile Include="Component\SettingsIcon.cs" />
     <Compile Include="Fixture\JumpForwardServiceFixture.cs" />
     <Compile Include="JumpForwardTestBase.cs" />
+    <Compile Include="Model\Enum\AccessType.cs" />
     <Compile Include="Model\CampItemModel.cs" />
     <Compile Include="Model\CampModel.cs" />
     <Compile Include="Model\CoachUserModel.cs" />
     <Compile Include="Model\CustomQuestionModel.cs" />
     <Compile Include="Model\CustomWaiver.cs" />
     <Compile Include="Model\DefaultCamperQuestionModel.cs" />
-    <Compile Include="Model\GenderType.cs" />
+    <Compile Include="Model\Enum\GenderType.cs" />
     <Compile Include="Model\ProspectModel.cs" />
     <Compile Include="Model\PurchaseModel.cs" />
     <Compile Include="PageObject\CoachAddNewsPage.cs" />

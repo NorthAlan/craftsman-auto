@@ -90,6 +90,9 @@
       <Link>App.config</Link>
     </None>
     <None Include="packages.config" />
+    <None Include="Smoke\Coach_Add_Test.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Smoke\DemoCase\TestData.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
