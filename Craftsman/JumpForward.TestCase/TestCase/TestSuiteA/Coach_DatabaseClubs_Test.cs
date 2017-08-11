@@ -26,13 +26,13 @@ namespace JumpForward.TestCase
 
         private const string cst_DisplayName = "Coach.Database.Clubs";
         private const string cst_TestDataFilePath = "TestData/TestSuiteA";
-        
 
-        [Fact(DisplayName = "JF0001."+ cst_DisplayName + ".CreateClub")]
+
+        [Fact(DisplayName = "JF0001." + cst_DisplayName + ".CreateClub")]
         public void JF0001_CreateClub()
         {
             //-->Data preparation.
-            var json = File.ReadAllText($"{cst_TestDataFilePath}/JF_0001/data01.json");
+            var json = File.ReadAllText($"{cst_TestDataFilePath}/JF0001/Club.json");
             var club = JsonConvert.DeserializeObject<ClubModel>(json);
 
             var signInPage = Router.GoTo<CoachSignInPage>();
@@ -51,44 +51,6 @@ namespace JumpForward.TestCase
             //-->Check Point.
             Assert.True(databaseClubsPage.IsExistClub(club.Name));
             Assert.True(databaseClubsPage.AddClubLink.IsExist());
-        }
-
-        [Fact(DisplayName = "JF0002." + cst_DisplayName + ".MergeClub")]
-        public void JF0002_MergeClub_SameClub()
-        {
-            //-->Data preparation.
-            var json = File.ReadAllText($"{cst_TestDataFilePath}/JF_0002/Club.json");
-            var clubA = JsonConvert.DeserializeObject<ClubModel>(json);
-            var clubB = JsonConvert.DeserializeObject<ClubModel>(json);
-
-
-            var signInPage = Router.GoTo<CoachSignInPage>();
-            var dbProspectsPage = signInPage.SignIn("demicoach@activenetwork.com", "active");
-            var databaseClubsPage = dbProspectsPage.NavMenu.Select<DatabaseClubsPage>("Databases", "Clubs");
-
-
-            //-->Actions.
-            ////Create ClubA
-            //databaseClubsPage = databaseClubsPage.ClickAddClubLink()
-            //    .SetClubBaseInformation(clubA)
-            //    .SetHeadCoachInformation(clubA)
-            //    .ClickSaveButton()
-            //    .ClickBackToClubsButton();
-
-            ////Create ClubB
-            //databaseClubsPage = databaseClubsPage.ClickAddClubLink()
-            //    .SetClubBaseInformation(clubA)
-            //    .SetHeadCoachInformation(clubA)
-            //    .ClickSaveButton()
-            //    .ClickBackToClubsButton();
-
-            databaseClubsPage.SelectClubs("JF0001-Club");
-
-            //MergeClub
-
-            //-->Check Point.
-            //Assert.True(databaseClubsPage.IsExistClub(club.Name));
-            //Assert.True(databaseClubsPage.AddClubLink.IsExist());
         }
     }
 }

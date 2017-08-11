@@ -21,7 +21,7 @@ namespace JumpForward.Common.PageObject
             //TODO: Verify page
             _navigationBar = new NavigationBar(driver, By.Id("navtop"));
             _settingsIcon = new SettingsIcon(driver);
-            ClosePopWindow(driver);
+            //ClosePopWindow(driver);
         }
 
         public SettingsIcon Settings { get { return _settingsIcon; } }

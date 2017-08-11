@@ -41,6 +41,12 @@ namespace Craftsman.Core
                 throw new Exception("Can not get WebElement!");
             }
         }
+
+        public string GetText()
+        {
+            return this.OriginalElement.Text;
+        }
+
         public bool IsClickable()
         {
             return (WaitSelector.WaitingFor_GetElementWhenToBeClickable(this._driver, this._by) != null);
@@ -80,6 +86,11 @@ namespace Craftsman.Core
         public void Waiting(For type)
         {
             Waiting(type, TimeSpan.FromSeconds(30));
+        }
+
+        public void WaitingTextToBePresent(string text)
+        {
+            WaitSelector.WaitingFor_TextToBePresentInElement(this._driver, this.OriginalElement, text, TimeSpan.FromSeconds(30));
         }
     }
 }
