@@ -15,13 +15,16 @@ namespace Craftsman.Core
 
         NotExist,
         NotVisible,
-        NotClickable
+        NotClickable,
+
+        TextToBePresent
     }
     public interface IComponent
     {
         bool IsExist();
         bool IsVisible();
         bool IsClickable();
+        string GetText();
         void Waiting(For type);
         void Waiting(For type, TimeSpan timeout);
     }

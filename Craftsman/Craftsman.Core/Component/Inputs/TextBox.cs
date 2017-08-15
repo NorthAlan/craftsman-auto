@@ -16,6 +16,7 @@ namespace Craftsman.Core.Component
         public void SendKeys(string text)
         {
             this.Waiting(For.Visible);
+            this.OriginalElement.Clear();
             this.OriginalElement.SendKeys(text);
         }
 

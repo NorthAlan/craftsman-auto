@@ -134,6 +134,7 @@ namespace Craftsman.Core.Component
 
         public List<JumpForwardTableCell> FindAllCellsByText(string text)
         {
+            this.Waiting(For.Visible);
             var cells = new List<JumpForwardTableCell>();
             for (var iRow = 1; iRow <= this.RowCount; iRow++)
             {

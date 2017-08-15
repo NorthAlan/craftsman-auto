@@ -29,7 +29,10 @@ namespace Craftsman.Core.Fixture
             var driverManager = CraftsmanFactory.CreateDriverManager();
             if (this.DriverManager != null)
             {
-                this.DriverManager.Driver.Manage().Window.Maximize();
+                var options = this.DriverManager.Driver.Manage();
+                options.Cookies.AddCookie(new OpenQA.Selenium.Cookie("wm-ASRep-14-39814", "1"));
+                options.Cookies.AddCookie(new OpenQA.Selenium.Cookie("wm-ASRep-14-45441", "1"));
+                options.Window.Maximize();
             }
 
             //build router.
