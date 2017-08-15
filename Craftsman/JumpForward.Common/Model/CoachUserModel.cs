@@ -14,7 +14,7 @@ namespace JumpForward.Common.Model
 
         public string LastName { get; set; }
 
-        public GenderType Gender { get; set; }
+        public string Gender { get; set; } //Male or Female
 
         public string Title { get; set; }
 
@@ -44,13 +44,13 @@ namespace JumpForward.Common.Model
 
         public string RequestNewCoachUsers { get; set; }//Only for Compliance
 
-        public AccessType PlaySeason { get; set; }//Only for Compliance
+        public string PlaySeason { get; set; }//Only for Compliance
 
-        public AccessType CARAWeek { get; set; }//Only for Compliance
+        public string CARAWeek { get; set; }//Only for Compliance
 
-        public AccessType Calendar { get; set; }//Only for Compliance
+        public string Calendar { get; set; }//Only for Compliance
 
-        public AccessType TMP { get; set; }//Only for Compliance
+        public string TMP { get; set; }//Only for Compliance
 
         public string Comment { get; set; }
 

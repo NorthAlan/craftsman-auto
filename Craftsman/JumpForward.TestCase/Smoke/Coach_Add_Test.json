@@ -3,7 +3,7 @@
   "FirstName": "Clark",
   "MiddleName": "string.Empty",
   "LastName": "Peng",
-  "Gender": "Male",
+  "Gender": "Male", //0: Male; 1: Female
   "Title": "Automation Test",
   "EmailAddress": "string.Empty",
   "Address1": "Home",
@@ -14,7 +14,7 @@
   "Zip": 12345,
   "Phone": "string.Empty",
   "Status": "Active",
-  "AllowSignOn": true, 
+  "AllowSignOn": true,
   "StaffDatabaseTab": "Edit",
   "RequestNewCoachUsers": "Full Adding Authority",
   "PlaySeason": 4,

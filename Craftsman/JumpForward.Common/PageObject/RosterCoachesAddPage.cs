@@ -79,25 +79,31 @@ namespace JumpForward.Common.PageObject
             this.txtFirstName.SendKeys(coachUser.FirstName);
             this.txtMiddleName.SendKeys(coachUser.MiddleName);
             this.txtLastName.SendKeys(coachUser.LastName);
-            if (coachUser.Gender == GenderType.Male)
+            if (coachUser.Gender == "Male")
                 this.radMale.Click();
             else
                 this.radFemale.Click();            
             this.txtTitle.SendKeys(coachUser.Title);
-            this.txtEmail.SendKeys(emial);
+            if (emial != null & emial != string.Empty)
+                this.txtEmail.SendKeys(emial);
+            else
+                this.txtEmail.SendKeys(coachUser.EmailAddress);
             this.txtAddress1.SendKeys(coachUser.Address1);
             this.txtAddress2.SendKeys(coachUser.Address2);
             this.txtCity.SendKeys(coachUser.City);
             this.txtZip.SendKeys(coachUser.Zip.ToString());
+            this.txtPhone.SendKeys(coachUser.PhoneNumber);
+            this.txtComment.SendKeys(coachUser.Comment);
             if (coachUser.AllowSignOn)
                 this.radAllowSignOnYes.Click();
             else
                 this.radAllowSignOnNo.Click();
+            this.ddlCountry.SelectByText(coachUser.Country);
             this.ddlState.SelectByText(coachUser.State);
             this.ddlStatus.SelectByText(coachUser.Status);
             this.ddlCoachSiteAccess.SelectByText(coachUser.StaffDatabaseTab);
             this.ddlRequestNewCoach.SelectByText(coachUser.RequestNewCoachUsers);
-            //this.ddlPlayingSeasonSetup.SelectByText(coachUser.PlaySeason);
+            this.ddlPlayingSeasonSetup.SelectByText(coachUser.PlaySeason);
             this.ddlCoachCategory.SelectByText(coachUser.CoachCategory);
             return this;
         }
