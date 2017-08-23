@@ -94,6 +94,7 @@
     <Compile Include="PageObject\CoachMyProfilePage.cs" />
     <Compile Include="PageObject\CoachPageBase.cs" />
     <Compile Include="PageObject\CoachSignInPage.cs" />
+    <Compile Include="PageObject\Coach\Compliance\ContactSubmitToCompliance.cs" />
     <Compile Include="PageObject\Compliance\ComplianceHomePage.cs" />
     <Compile Include="PageObject\Compliance\CompliancePageBase.cs" />
     <Compile Include="PageObject\Compliance\Departments\AddNewComplianceUserPage.cs" />
@@ -118,6 +119,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Database\" />
+    <Folder Include="PageObject\Coach\Database\" />
     <Folder Include="WorkFlow\" />
   </ItemGroup>
   <ItemGroup>
