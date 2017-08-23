@@ -84,6 +84,7 @@
     <Compile Include="Smoke\DemoCase\Coach_CreateCamp_Test.cs" />
     <Compile Include="Smoke\Coach_SignIn_Test.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestCase\TestSuiteA\Coach_DatabaseClubs_Search.cs" />
     <Compile Include="TestCase\TestSuiteA\Coach_DatabaseClubs_Test.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -97,12 +98,14 @@
     <None Include="Smoke\DemoCase\TestData.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\TestSuiteA\JF_0001\data01.json">
+    <None Include="TestData\TestSuiteA\JF0001\Club.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\TestSuiteA\JF_0002\Club.json">
+    <None Include="TestData\TestSuiteA\JF0002\Club.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="TestData\TestSuiteA\JF_0001\data01.json" />
+    <None Include="TestData\TestSuiteA\JF_0002\Club.json" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Craftsman.Core\Craftsman.Core.csproj">

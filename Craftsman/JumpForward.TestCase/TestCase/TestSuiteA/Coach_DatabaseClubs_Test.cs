@@ -36,7 +36,7 @@ namespace JumpForward.TestCase
             var club = JsonConvert.DeserializeObject<ClubModel>(json);
 
             var signInPage = Router.GoTo<CoachSignInPage>();
-            var dbProspectsPage = signInPage.SignIn("demicoach@activenetwork.com", "active");
+            var dbProspectsPage = signInPage.CoachSignIn("demicoach@activenetwork.com", "active");
             var databaseClubsPage = dbProspectsPage.NavMenu.Select<DatabaseClubsPage>("Databases", "Clubs");
 
 

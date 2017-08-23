@@ -79,7 +79,7 @@ namespace JumpForward.Common.PageObject
             this.txtFirstName.SendKeys(coachUser.FirstName);
             this.txtMiddleName.SendKeys(coachUser.MiddleName);
             this.txtLastName.SendKeys(coachUser.LastName);
-            if (coachUser.Gender == "Male")
+            if (coachUser.Gender == GenderType.Male)
                 this.radMale.Click();
             else
                 this.radFemale.Click();            

@@ -14,7 +14,7 @@ namespace JumpForward.Common.Model
 
         public string LastName { get; set; }
 
-        public string Gender { get; set; } //Male or Female
+        public GenderType Gender { get; set; } //Male or Female
 
         public string Title { get; set; }
 
