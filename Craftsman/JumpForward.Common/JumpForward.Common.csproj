@@ -94,7 +94,15 @@
     <Compile Include="PageObject\CoachMyProfilePage.cs" />
     <Compile Include="PageObject\CoachPageBase.cs" />
     <Compile Include="PageObject\CoachSignInPage.cs" />
-    <Compile Include="PageObject\Coach\Compliance\ContactSubmitToCompliance.cs" />
+    <Compile Include="PageObject\Coach\Compliance\Contact\EvaluationDaysByProspectPage.cs" />
+    <Compile Include="PageObject\Coach\Compliance\Contact\EvaluationDaysStandardPage.cs" />
+    <Compile Include="PageObject\Coach\Compliance\Contact\EventSummaryReportPage.cs" />
+    <Compile Include="PageObject\Coach\Compliance\Contact\RecruitingPersonDaysByProspectPage.cs" />
+    <Compile Include="PageObject\Coach\Compliance\Contact\RecruitingPersonDaysStandardPage.cs" />
+    <Compile Include="PageObject\Coach\Compliance\Contact\RecruitSummaryReportPage.cs" />
+    <Compile Include="PageObject\Coach\Compliance\Contact\SchoolSummaryReportPage.cs" />
+    <Compile Include="PageObject\Coach\Compliance\Contact\SimpleSchoolSummaryReportPage.cs" />
+    <Compile Include="PageObject\Coach\Compliance\Contact\SubmitToCompliancePage.cs" />
     <Compile Include="PageObject\Compliance\ComplianceHomePage.cs" />
     <Compile Include="PageObject\Compliance\CompliancePageBase.cs" />
     <Compile Include="PageObject\Compliance\Departments\AddNewComplianceUserPage.cs" />
