@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 
 namespace JumpForward.Common.PageObject
 {
-    public class DatabaseClubsPage : CoachPageBase
+    public class CoachDatabaseClubsPage : CoachPageBase
     {
         protected Link lnkAddClub;
         protected JumpForwardTable tblClubs;
@@ -33,12 +33,15 @@ namespace JumpForward.Common.PageObject
 
         #region Component for check point
         public IComponent AddClubLink { get { return lnkAddClub; } }
+        public IComponent SearchClubTextBox { get { return txtSearchClub; } }
+        public IComponent SearchTeamTextBox { get { return txtSearchTeam; } }
         public IComponent FilterClubName { get { return txaFilterClubName; } }
         public IComponent FilterTeamName { get { return txaFilterTeamName; } }
+        public JumpForwardTable ClubsList { get { return tblClubs; } }
         #endregion Component for check point
 
 
-        public DatabaseClubsPage(IWebDriver driver) : base(driver)
+        public CoachDatabaseClubsPage(IWebDriver driver) : base(driver)
         {
             //Init element.
             lnkAddClub = new Link(driver, By.XPath(".//i[contains(@class,'clubs-add-icon')]/parent::span/parent::a"));
@@ -52,14 +55,14 @@ namespace JumpForward.Common.PageObject
         }
 
         #region Action method 
-        public DatabaseClubsDetailPage ClickAddClubLink()
+        public CoachDatabaseClubsDetailPage ClickAddClubLink()
         {
             this.lnkAddClub.Click();
             //TO DO: Move to base
             var locator = this.Driver.SwitchTo();
             var windowName = this.Driver.WindowHandles.Last();
             locator.Window(windowName);
-            return new DatabaseClubsDetailPage(this.Driver);
+            return new CoachDatabaseClubsDetailPage(this.Driver);
         }
 
         public bool IsExistClub(string clubName)
@@ -76,7 +79,7 @@ namespace JumpForward.Common.PageObject
             return hasClub;
         }
 
-        public DatabaseClubsPage SelectClubs(string name)
+        public CoachDatabaseClubsPage SelectClubs(string name)
         {
             var cells = tblClubs.FindAllCellsByText(name);
             foreach (var cell in cells)
@@ -88,14 +91,14 @@ namespace JumpForward.Common.PageObject
             return this;
         }
 
-        public DatabaseClubsPage SetSearchClub(string text)
+        public CoachDatabaseClubsPage SetSearchClub(string text)
         {
             txtSearchClub.SendKeys(text);
             WaitSelector.HardWait(TimeSpan.FromSeconds(3));
             return this;
         }
 
-        public DatabaseClubsPage SetSearchTeam(string text)
+        public CoachDatabaseClubsPage SetSearchTeam(string text)
         {
             txtSearchTeam.SendKeys(text);
             WaitSelector.HardWait(TimeSpan.FromSeconds(3));

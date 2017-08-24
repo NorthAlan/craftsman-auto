@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace JumpForward.Common.PageObject
 {
-    public class DatabaseClubsDetailPage : CoachPageBase
+    public class CoachDatabaseClubsDetailPage : CoachPageBase
     {
         #region Internal component
 
@@ -52,7 +52,7 @@ namespace JumpForward.Common.PageObject
 
         #endregion Internal component
 
-        public DatabaseClubsDetailPage(IWebDriver driver) : base(driver)
+        public CoachDatabaseClubsDetailPage(IWebDriver driver) : base(driver)
         {
             //Init element.
             #region Base information 
@@ -91,7 +91,7 @@ namespace JumpForward.Common.PageObject
         }
 
         #region Action method 
-        public DatabaseClubsDetailPage SetClubBaseInformation(ClubModel club)
+        public CoachDatabaseClubsDetailPage SetClubBaseInformation(ClubModel club)
         {
             txtClubName.SendKeys(club.Name);
             txtTeamName.SendKeys(club.TeamName);
@@ -112,13 +112,13 @@ namespace JumpForward.Common.PageObject
             return this;
         }
 
-        public DatabaseClubsDetailPage SetHeadCoachInformation(ClubModel club)
+        public CoachDatabaseClubsDetailPage SetHeadCoachInformation(ClubModel club)
         {
             SetHeadCoachInformation(club.HeadCoach);
             return this;
         }
 
-        public DatabaseClubsDetailPage SetHeadCoachInformation(ClubHeadCoach coach)
+        public CoachDatabaseClubsDetailPage SetHeadCoachInformation(ClubHeadCoach coach)
         {
             txtHeadCoachTitle.SendKeys(coach.Title);
             txtHeadCoachFirstName.SendKeys(coach.FirstName);
@@ -131,19 +131,41 @@ namespace JumpForward.Common.PageObject
             return this;
         }
 
-        public DatabaseClubsDetailPage ClickSaveButton()
+        public CoachDatabaseClubsDetailPage ClickSaveButton()
         {
             btnSaveTeam.Click();
             WaitSelector.WaitingFor_UrlContains(this.Driver, "ClubDetail.aspx?initialaction=view");
             return this;
         }
 
-        public DatabaseClubsPage ClickBackToClubsButton()
+        public CoachDatabaseClubsPage ClickBackToClubsButton()
         {
             btnBackToClubs.Click();
-            return new DatabaseClubsPage(this.Driver);
+            return new CoachDatabaseClubsPage(this.Driver);
         }
 
         #endregion Action method
+
+
+        #region Component for check point
+        public IComponent ClubNameTextBox { get { return txtClubName; } }
+        public IComponent TeamNameTextBox { get { return txtTeamName; } }
+        public IComponent LocationNameTextBox { get { return txtLocationName; } }
+        public IComponent AddressLine1TextBox { get { return txtAddressLine1; } }
+        public IComponent AddressLine2TextBox { get { return txtAddressLine2; } }
+        public IComponent AddressLine3TextBox { get { return txtAddressLine3; } }
+
+        public IComponent CityTextBox { get { return txtCity; } }
+        public IComponent CountyTextBox { get { return txtCounty; } }
+        public IComponent CountryDropDownList { get { return ddlCountry; } }
+        public IComponent StateDropDownList { get { return ddlState; } }
+        public IComponent ZipCodeTextBox { get { return txtZipCode; } }
+        public IComponent ClubWebsiteTextBox { get { return txtClubWebsite; } }
+        public IComponent MainPhoneNumberTextBox { get { return txtMainPhoneNumber; } }
+        public IComponent SeasonRecordTextBox { get { return txtSeasonRecord; } }
+        public IComponent RecentGameResultsTextBox { get { return txtRecentGameResults; } }
+
+        #endregion Component for check point
     }
 }
+

@@ -54,12 +54,12 @@ namespace Craftsman.Core
 
         public bool IsExist()
         {
-            return (WaitSelector.WaitingFor_GetElementsWhenExists(this._driver, this._by) != null);
+            return (WaitSelector.WaitingFor_GetElementWhenExists(this._driver, this._by) != null);
         }
 
         public bool IsVisible()
         {
-            return (WaitSelector.WaitingFor_GetElementsWhenIsVisible(this._driver, this._by) != null);
+            return (WaitSelector.WaitingFor_GetElementWhenIsVisible(this._driver, this._by) != null);
         }
 
         public void Waiting(For type, TimeSpan timeout)

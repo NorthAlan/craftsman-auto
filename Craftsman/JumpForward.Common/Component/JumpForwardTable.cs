@@ -97,6 +97,19 @@ namespace Craftsman.Core.Component
             }
         }
 
+        public List<string> ColumnNames
+        {
+            get
+            {
+                var columnNames = new List<string>();
+                var headerCells = this.OriginalElement.FindElements(By.XPath("./div[contains(@class,'k-grid-header')]//th"));
+                for (var i = 0; i < headerCells.Count; i++)
+                {
+                    columnNames.Add(headerCells[i].Text);   
+                }
+                return columnNames;
+            }
+        }
         public int ColunmCount
         {
             get

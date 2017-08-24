@@ -80,11 +80,12 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
+    <Compile Include="BVT\CoachDatabaseTest_BVT.cs" />
     <Compile Include="Smoke\DemoCase\Coach_CreateCamp_Test.cs" />
     <Compile Include="Smoke\Coach_SignIn_Test.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TestCase\TestSuiteA\Coach_DatabaseClubs_Search.cs" />
-    <Compile Include="TestCase\TestSuiteA\Coach_DatabaseClubs_Test.cs" />
+    <Compile Include="BVT\TestSuiteA\Coach_DatabaseClubs_Search.cs" />
+    <Compile Include="BVT\TestSuiteA\Coach_DatabaseClubs_Test.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\JumpForward.Common\App.config">
@@ -112,10 +113,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="TestCase\Coach\" />
-    <Folder Include="TestCase\Compliance\" />
-    <Folder Include="TestCase\Elevation\" />
-    <Folder Include="TestCase\StudentAthlete\" />
+    <Folder Include="BVT\Coach\" />
+    <Folder Include="BVT\Compliance\" />
+    <Folder Include="BVT\Elevation\" />
+    <Folder Include="BVT\StudentAthlete\" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

@@ -37,7 +37,7 @@ namespace JumpForward.TestCase
 
             var signInPage = Router.GoTo<CoachSignInPage>();
             var dbProspectsPage = signInPage.SignIn("demicoach@activenetwork.com", "active");
-            var databaseClubsPage = dbProspectsPage.NavMenu.Select<DatabaseClubsPage>("Databases", "Clubs");
+            var databaseClubsPage = dbProspectsPage.NavMenu.Select<CoachDatabaseClubsPage>("Databases", "Clubs");
 
 
             //-->Actions.

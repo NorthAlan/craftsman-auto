@@ -90,9 +90,9 @@
     <Compile Include="PageObject\CoachMyProfilePage.cs" />
     <Compile Include="PageObject\CoachPageBase.cs" />
     <Compile Include="PageObject\CoachSignInPage.cs" />
-    <Compile Include="PageObject\DatabaseClubsDetailPage.cs" />
+    <Compile Include="PageObject\Coach\Databases\CoachDatabaseClubsDetailPage.cs" />
     <Compile Include="PageObject\DatabaseCampsDetailPage.cs" />
-    <Compile Include="PageObject\DatabaseClubsPage.cs" />
+    <Compile Include="PageObject\Coach\Databases\CoachDatabaseClubsPage.cs" />
     <Compile Include="PageObject\DatabaseCampsPage.cs" />
     <Compile Include="PageObject\DatabaseProspectsPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

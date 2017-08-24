@@ -53,11 +53,16 @@ namespace Craftsman.Core.Utilities
             var keyPageObject = type.FullName;
             var url = string.Format("{0}/{1}", BuildBaseUrl(appName), subPath);
 
-            if (_dicMap.ContainsKey(keyPageObject))
+            //if (_dicMap.ContainsKey(keyPageObject))
+            //{
+            //    throw new Exception(string.Format("[Craftsman] : Can't add same page object key {0}", keyPageObject));
+            //}
+            //_dicMap.Add(keyPageObject, url);
+            if (!_dicMap.ContainsKey(keyPageObject))
             {
-                throw new Exception(string.Format("[Craftsman] : Can't add same page object key {0}", keyPageObject));
+                _dicMap.Add(keyPageObject, url);
             }
-            _dicMap.Add(keyPageObject, url);
+            
         }
 
         public void SetUpBaseUrl(string appName, string baseUrl)
@@ -66,12 +71,16 @@ namespace Craftsman.Core.Utilities
             {
                 _dicAppBaseUrl = new Dictionary<string, string>();
             }
-            if (_dicAppBaseUrl.ContainsKey(appName))
+            //if (_dicAppBaseUrl.ContainsKey(appName))
+            //{
+            //    throw new Exception(string.Format("[Craftsman] : Can't add same app key {0}", appName));
+            //}
+            //_dicAppBaseUrl.Add(appName, baseUrl);
+            if (!_dicAppBaseUrl.ContainsKey(appName))
             {
-                throw new Exception(string.Format("[Craftsman] : Can't add same app key {0}", appName));
+                _dicAppBaseUrl.Add(appName, baseUrl);
             }
-
-            _dicAppBaseUrl.Add(appName, baseUrl);
+            
         }
 
         protected string BuildPageUrl(string appName, string subUrl)

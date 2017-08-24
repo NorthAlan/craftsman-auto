@@ -54,6 +54,10 @@ namespace JumpForward.Common.Component
             {
                 xPath = string.Format(CST_SETTINGS_NAV, "Add News");
             }
+            if (type.Equals(typeof(CoachSignInPage)))
+            {
+                xPath = string.Format(CST_SETTINGS_NAV, "Logout");
+            }
 
             if (string.IsNullOrEmpty(xPath))
             {
@@ -70,6 +74,20 @@ namespace JumpForward.Common.Component
 
             var objPage = (T)Activator.CreateInstance(typeof(T), _driver);            
             return objPage;
+        }
+
+        public CoachSignInPage Logout()
+        {
+            //click menu
+            var settingsIcon = _driver.FindElement(By.XPath(CST_SETTINGS_ICON));
+            var action = new Actions(_driver);
+            action.MoveToElement(settingsIcon).Perform();
+
+            var xPath = string.Format(CST_SETTINGS_NAV, "Logout");
+            var settingsMenu = WaitSelector.WaitingFor_GetElementWhenIsVisible(this._driver, By.XPath(xPath));
+            settingsMenu.Click();
+
+            return new CoachSignInPage(this._driver);
         }
     }
 }
